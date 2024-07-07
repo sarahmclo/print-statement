@@ -42,28 +42,53 @@ def typingPrint(text, color=Fore.WHITE):
 
 def welcome():
     """
+    Display Print Statement Banner 
+    """
+    print(Fore.MAGENTA + r'''
+
+  +----------------------------------------------------------------+
+  |  ######                                                        |
+  |  #     # #####  # #    # #####                                 |
+  |  #     # #    # # ##   #   #                                   |
+  |  ######  #    # # # #  #   #                                   |
+  |  #       ####   # #  # #   #                                   |
+  |  #       #   #  # #   ##   #                                   |
+  |  #       #    # # #    #   #                                   |
+  |   #####                                                        |
+  |  #     # #####   ##   ##### ###### #    # ###### #    # #####  |
+  |  #         #    #  #    #   #      ##  ## #      ##   #   #    |
+  |   #####    #   #    #   #   #####  # ## # #####  # #  #   #    |
+  |        #   #   ######   #   #      #    # #      #  # #   #    |
+  |  #     #   #   #    #   #   #      #    # #      #   ##   #    |
+  |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
+  +----------------------------------------------------------------+
+''')
+    time.sleep(1)
+    """
     Display welcome screen text
     """
-    typingPrint("Welcome to Print Statement\n",Fore.LIGHTMAGENTA_EX)
-    typingPrint("A sales revenue and inventory management system for sarah_prints_inc.")
-    time.sleep(5)
+    typingPrint("                     Welcome to Print Statement\n",Fore.YELLOW                            )
+    time.sleep(1)
+    typingPrint("A sales revenue and inventory management system for sarah_prints_inc.",Fore.WHITE)
+    time.sleep(4.5)
     clearScreen()
 
-    typingPrint("PRINT STATEMENT is a comprehensive inventory management system.\n"
-    "It is for a small screen printing business that sells in a local market.\n"
-    "It enables users to oversee sales, monitor stock, and track materials and print-runs efficiently.\n")
-    time.sleep(4)
+    typingPrint("PRINT STATEMENT is a comprehensive inventory management system.\n")
+    time.sleep(1)
+    typingPrint("This program is for a small screen-printing business.\n")
+    time.sleep(1)
+    typingPrint("It enables user to oversee sales, monitor stock, track materials and print-runs.\n")
+    time.sleep(3)
 
     print("\n")
 
-    print("Choose a number from one of the following options\n",Fore.LIGHTMAGENTA_EX)
+    print(Fore.CYAN + "Please choose a number from one of the following options:\n")
     
-    print ("1. View Stock\n"
-    "2. View Sales\n"
-    "3. View Surplus\n"
-    "4. View Materials\n"
+    print ("1. View Sales\n"
+    "2. View Stock\n"
+    "3. View Materials\n"
+    "4. Update Sales\n"
     "5. Update Stock\n"
-    "6. Update Sales\n"
-    "7. Update Materials\n")
+    "6. Update Materials\n")
 
 welcome()
