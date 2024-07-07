@@ -69,26 +69,26 @@ def welcome():
     """
     typingPrint("                     Welcome to Print Statement\n",Fore.YELLOW                            )
     time.sleep(1)
-    typingPrint("A sales revenue and inventory management system for sarah_prints_inc.",Fore.WHITE)
+    typingPrint(" A sales revenue and inventory management system for sarah_prints_inc.",Fore.WHITE)
     time.sleep(4.5)
     clearScreen()
 
-    typingPrint("PRINT STATEMENT is a comprehensive inventory management system.\n")
+    typingPrint(" PRINT STATEMENT is a comprehensive inventory management system.\n")
     time.sleep(1)
-    typingPrint("This program is for a small screen-printing business.\n")
+    typingPrint(" This program is for a small screen-printing business.\n")
     time.sleep(1)
-    typingPrint("It enables user to oversee sales, monitor stock, track materials and print-runs.\n")
+    typingPrint(" It enables user to oversee sales, monitor stock, track materials and print-runs.\n")
     time.sleep(3)
 
     print("\n")
 
-    print(Fore.CYAN + "Please choose a number from one of the following options:\n")
+    print(Fore.CYAN + " Please choose a number from one of the following options:\n")
     
-    print ("1. View Sales\n"
-    "2. View Stock\n"
-    "3. View Materials\n"
-    "4. Update Sales\n"
-    "5. Update Stock\n"
-    "6. Update Materials\n")
+    print (" 1. View Sales\n"
+    " 2. View Stock\n"
+    " 3. View Materials\n"
+    " 4. Update Sales\n"
+    " 5. Update Stock\n"
+    " 6. Update Materials\n")
 
 welcome()
