@@ -4,9 +4,9 @@
 
 Welcome to Print Statement, a Python command line interface (CLI) application created specifically for a small screen printing business that sells original print creations at a local market. This application allows users to manage print runs, production sales, track orders and monitor inventory levels for products and materials. It shows screen print stock, what has been sold, and what might be needed for future markets based on sales. Fully customizable, Print Statement allows users to easily update their print stock and inventory items through intuitive menus and dynamic feedback.
 
-View and run the Print Statement program [here](https://sarahmclo.github.io/print-statement/)
+Run the Print Statement program [here](https://print-statement-32b6316d2a47.herokuapp.com/)
 
-Visit the associated Google Sheet (view-only) [here](https://docs.google.com/spreadsheets/d/193sfu5-egV1CwdlEekhhK_C_0bI6U0F35P2-WDSwh3A/edit?usp=sharing)
+Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/193sfu5-egV1CwdlEekhhK_C_0bI6U0F35P2-WDSwh3A/edit?usp=sharing)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sarahmclo/print-statement)
 ![GitHub top language](https://img.shields.io/github/languages/top/sarahmclo/print-statement)
