@@ -40,12 +40,17 @@ def typingPrint(text, color=Fore.WHITE):
         sys.stdout.flush()
         time.sleep(0.05)
 
+def typeInput(text):
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
+
 def welcome():
     """
     Display Print Statement Banner 
     """
-    print(Fore.MAGENTA + r'''
-
+    print(Fore.MAGENTA + Style.BRIGHT + r'''
   +----------------------------------------------------------------+
   |  ######                                                        |
   |  #     # #####  # #    # #####                                 |
@@ -69,26 +74,56 @@ def welcome():
     """
     typingPrint("                     Welcome to Print Statement\n",Fore.YELLOW                            )
     time.sleep(1)
-    typingPrint(" A sales revenue and inventory management system for sarah_prints_inc.",Fore.WHITE)
+    typingPrint(" A sales revenue and inventory management system for screen_prints_inc.",Fore.WHITE)
     time.sleep(4.5)
     clearScreen()
 
+    print("\n")
+    print("\n")
     typingPrint(" PRINT STATEMENT is a comprehensive inventory management system.\n")
     time.sleep(1)
     typingPrint(" This program is for a small screen-printing business.\n")
     time.sleep(1)
-    typingPrint(" It enables user to oversee sales, monitor stock, track materials and print-runs.\n")
+    typingPrint(" It enables users to oversee sales, monitor print stock and materials.\n")
     time.sleep(3)
+
+welcome()
+
+def options():
 
     print("\n")
 
-    print(Fore.CYAN + " Please choose a number from one of the following options:\n")
+    print(Fore.YELLOW + Style.BRIGHT + " Please choose from the menu below:\n")
     
-    print (" 1. View Sales\n"
-    " 2. View Stock\n"
-    " 3. View Materials\n"
-    " 4. Update Sales\n"
-    " 5. Update Stock\n"
-    " 6. Update Materials\n")
+    print ("   1. View Sales\n"
+    "   2. View Stock\n"
+    "   3. View Materials\n"
+    "   4. Update Sales\n"
+    "   5. Update Stock\n"
+    "   6. Update Materials\n")
 
-welcome()
+    while True:
+        try:
+            option = int(typeInput(" Choose a number to access corresponding data:\n"))
+            if option == 1:
+                view_sales()
+                break
+            elif option == 2:
+                view_stock()
+                break
+            elif option == 3:
+                view_materials()
+                break
+            elif option == 4:
+                update_sales()
+                break
+            elif option == 5:
+                update_stock()
+                break
+            elif option == 6:
+                update_materials()
+                break
+        except ValueError:
+            print(Fore.RED + "Please choose a valid number")
+
+options()
