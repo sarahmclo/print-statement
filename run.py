@@ -49,7 +49,21 @@ def welcome():
     time.sleep(5)
     clearScreen()
 
-    typingPrint("PRINT STATEMENT  is a comprehensive inventory management system for a small screen printing business that sells at local markets.\n"
-    "It enables users to oversee sales, monitor stock, and track materials and preint-runs efficiently.\n")
+    typingPrint("PRINT STATEMENT is a comprehensive inventory management system for a small screen printing business\n"
+    "that sells at local markets. It enables users to oversee sales, monitor stock,\n" 
+    "and track materials and print-runs efficiently.\n")
+    time.sleep(4)
+
+    print("\n")
+
+    print("Choose from one of the following options, type corresponding number into terminal to view data:\n",Fore.LIGHTMAGENTA_EX)
+    
+    print ("1. View Stock\n"
+    "2. View Sales\n"
+    "3. View Surplus\n"
+    "4. View Materials\n"
+    "5. Update Stock\n"
+    "6. Update Sales\n"
+    "7. Update Materials\n")
 
 welcome()
