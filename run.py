@@ -64,7 +64,7 @@ def welcome():
        |  #     # #####   ##   ##### ###### #    # ###### #    # #####  |
        |  #         #    #  #    #   #      ##  ## #      ##   #   #    |
        |   #####    #   #    #   #   #####  # ## # #####  # #  #   #    |
-       |        #   #   ######   #   #      #    # #      #  # #   #    |
+       |        #   #   ######   #   #      #  # # #      #  # #   #    |
        |  #     #   #   #    #   #   #      #    # #      #   ##   #    |
        |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
        +----------------------------------------------------------------+
@@ -74,9 +74,10 @@ def welcome():
     """
     Display welcome screen text
     """
-    typingPrint("                   ** Welcome to Print Statement **\n",Fore.YELLOW + Style.BRIGHT                          )
+    typingPrint("                      ** Welcome to Print Statement **\n",Fore.YELLOW + Style.BRIGHT                          )
     time.sleep(1)
     typingPrint("     A sales and inventory management system for Sarah's Screen Prints Inc.",Fore.WHITE)
+    print("\n")
     time.sleep(4.5)
     clearScreen()
 
@@ -84,9 +85,9 @@ def welcome():
     typingPrint(" Print Statement",Fore.YELLOW + Style.BRIGHT )
     typingPrint(" is a comprehensive inventory management system.\n")
     time.sleep(1)
-    typingPrint(" This program is for an artist's screen-printing business.\n")
+    typingPrint(" This program is for an artist's small screen-printing business.\n")
     time.sleep(1)
-    typingPrint(" It enables users to monitor sales, stock and materials.\n")
+    typingPrint(" It enables users to monitor sales, stock, orders and materials.\n")
     time.sleep(3)
 
 welcome()
@@ -103,6 +104,10 @@ def options():
     "   4. Product Surplus\n"
     "   5. Materials\n"
     "   6. Exit Program\n")
+
+    while True:
+        data_str = input(Fore.YELLOW + Style.BRIGHT + " Enter a number to access data here: \n")
+
     """
     while True:
         try:
