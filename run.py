@@ -51,37 +51,40 @@ def welcome():
     Display Print Statement Banner 
     """
     print(Fore.MAGENTA + Style.BRIGHT + r'''
-  +----------------------------------------------------------------+
-  |  ######                                                        |
-  |  #     # #####  # #    # #####                                 |
-  |  #     # #    # # ##   #   #                                   |
-  |  ######  #    # # # #  #   #                                   |
-  |  #       ####   # #  # #   #                                   |
-  |  #       #   #  # #   ##   #                                   |
-  |  #       #    # # #    #   #                                   |
-  |   #####                                                        |
-  |  #     # #####   ##   ##### ###### #    # ###### #    # #####  |
-  |  #         #    #  #    #   #      ##  ## #      ##   #   #    |
-  |   #####    #   #    #   #   #####  # ## # #####  # #  #   #    |
-  |        #   #   ######   #   #      #    # #      #  # #   #    |
-  |  #     #   #   #    #   #   #      #    # #      #   ##   #    |
-  |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
-  +----------------------------------------------------------------+
+       $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+       +----------------------------------------------------------------+
+       |  ######                                                        |
+       |  #     # #####  # #    # #####                                 |
+       |  #     # #    # # ##   #   #                                   |
+       |  ######  #    # # # #  #   #                                   |
+       |  #       ####   # #  # #   #                                   |
+       |  #       #   #  # #   ##   #                                   |
+       |  #       #    # # #    #   #                                   |
+       |   #####                                                        |
+       |  #     # #####   ##   ##### ###### #    # ###### #    # #####  |
+       |  #         #    #  #    #   #      ##  ## #      ##   #   #    |
+       |   #####    #   #    #   #   #####  # ## # #####  # #  #   #    |
+       |        #   #   ######   #   #      #    # #      #  # #   #    |
+       |  #     #   #   #    #   #   #      #    # #      #   ##   #    |
+       |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
+       +----------------------------------------------------------------+
+       $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ''')
     time.sleep(1)
     """
     Display welcome screen text
     """
-    typingPrint("                     Welcome to Print Statement\n",Fore.YELLOW                            )
+    typingPrint("                   ** Welcome to Print Statement **\n",Fore.YELLOW + Style.BRIGHT                          )
     time.sleep(1)
-    typingPrint(" A sales and inventory management system for screen_prints_inc.",Fore.WHITE)
+    typingPrint("     A sales and inventory management system for Sarah's Screen Prints Inc.",Fore.WHITE)
     time.sleep(4.5)
     clearScreen()
 
     print("\n")
-    typingPrint(" PRINT STATEMENT is a comprehensive inventory management system.\n")
+    typingPrint(" Print Statement",Fore.YELLOW + Style.BRIGHT )
+    typingPrint(" is a comprehensive inventory management system.\n")
     time.sleep(1)
-    typingPrint(" This program is for a small screen-printing business.\n")
+    typingPrint(" This program is for an artist's screen-printing business.\n")
     time.sleep(1)
     typingPrint(" It enables users to monitor sales, stock and materials.\n")
     time.sleep(3)
@@ -93,14 +96,14 @@ def options():
     print("\n")
 
     print(Fore.YELLOW + Style.BRIGHT + " Please choose from the menu below:\n")
-    
-    print ("   1. View Sales\n"
-    "   2. View Stock\n"
-    "   3. View Materials\n"
-    "   4. Update Sales\n"
-    "   5. Update Stock\n"
-    "   6. Update Materials\n")
-
+    time.sleep(2)
+    print ("   1. Market Sales\n"
+    "   2. Online Sales\n"
+    "   3. Print Stock\n"
+    "   4. Product Surplus\n"
+    "   5. Materials\n"
+    "   6. Exit Program\n")
+    """
     while True:
         try:
             option = int(typeInput(" Choose a number to access corresponding data:\n"))
@@ -124,5 +127,5 @@ def options():
                 break
         except ValueError:
             print(Fore.RED + "Please choose a valid number")
-
+    """
 options()

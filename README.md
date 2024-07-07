@@ -6,7 +6,7 @@ Welcome to Print Statement, a Python command line interface (CLI) application cr
 
 Run the Print Statement program [here](https://print-statement-32b6316d2a47.herokuapp.com/)
 
-Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/193sfu5-egV1CwdlEekhhK_C_0bI6U0F35P2-WDSwh3A/edit?usp=sharing)
+Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2cyK-pgUHrKHa2XV_88RbtFrG6MvRe8Mn8bJPPdHk/edit?usp=sharing)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sarahmclo/print-statement)
 ![GitHub top language](https://img.shields.io/github/languages/top/sarahmclo/print-statement)
