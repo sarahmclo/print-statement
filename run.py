@@ -49,4 +49,7 @@ def welcome():
     time.sleep(5)
     clearScreen()
 
+    typingPrint("PRINT STATEMENT  is a comprehensive inventory management system for a small screen printing business that sells at local markets.\n"
+    "It enables users to oversee sales, monitor stock, and track materials and preint-runs efficiently.\n")
+
 welcome()
