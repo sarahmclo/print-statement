@@ -204,7 +204,8 @@ def exit_program():
     typingPrint("Exiting the program...\n", Fore.RED + Style.BRIGHT)
     time.sleep(2)
     clearScreen()
-    sys.exit()
+    welcome()
+    options()
 
 
 options()
