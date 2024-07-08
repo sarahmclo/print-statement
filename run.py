@@ -27,6 +27,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('print_statement')  # use exact spreadsheet name here
 
 # Functions
+
 def clearScreen():
     """
     Clear CLI function
@@ -44,16 +45,11 @@ def typingPrint(text, color=Fore.WHITE):
         time.sleep(0.05)
 
 
-def getInput(prompt, valid_options):
-    """
-    Get input from user and validate against valid_options
-    """
-    while True:
-        user_input = input(prompt).strip().upper()
-        if user_input in valid_options:
-            return user_input
-        else:
-            print(Fore.RED + "Invalid input. Please enter valid option.")
+def typeInput(text):
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
 
 
 def welcome():
