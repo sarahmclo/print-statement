@@ -1,21 +1,18 @@
-# Expect a terminal of 80 characters wide and 24 rows high
-# Import dependencies
+# Import libraries and dependencies
 import gspread
 from google.oauth2.service_account import Credentials
 import sys
 import os
 import time
+from tabulate import tabulate
 
 # Import colorama modules, adapted from tutorial:
 # https://linuxhint.com/colorama-python/
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
 # Initialise colorama
 colorama.init(autoreset=True)
-
-# Import tabulate to return sheet values in table format
-from tabulate import tabulate
 
 # IAM Configuration
 SCOPE = [
@@ -27,11 +24,9 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('print_statement')  # use spreadsheet name here
+SHEET = GSPREAD_CLIENT.open('print_statement')  # use exact spreadsheet name here
 
 # Functions
-
-
 def clearScreen():
     """
     Clear CLI function
@@ -49,11 +44,16 @@ def typingPrint(text, color=Fore.WHITE):
         time.sleep(0.05)
 
 
-def typeInput(text):
-    for character in text:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.05)
+def getInput(prompt, valid_options):
+    """
+    Get input from user and validate against valid_options
+    """
+    while True:
+        user_input = input(prompt).strip().upper()
+        if user_input in valid_options:
+            return user_input
+        else:
+            print(Fore.RED + "Invalid input. Please enter valid option.")
 
 
 def welcome():
