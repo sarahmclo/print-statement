@@ -159,8 +159,18 @@ def view_sales(sheet_name):
     data_list = [list(record.values()) for record in sales_data]
     # Print data as a table
     print(tabulate(data_list, headers=sales_data[0].keys(), tablefmt='fancy_grid'))
-    time.sleep(4)
-    options()
+    print("\n")
+    update_option = input(Fore.CYAN + " Update Data: Y/N")
+    if update_option.upper() == 'Y':
+        #LOGIC - UPDATE LATER
+        print(Fore.YELLOW + "Updating data...")
+        time.sleep(2)
+        return_option = input(Fore.YELLOW + " Return to Options: Type Y/N\n")
+    if return_option.upper() == 'Y':
+        options()
+    exit_option = input(Fore.YELLOW + " Exit Program: Type E\n")
+    if exit_option.upper() == 'E':
+        exit_program()
 
 
 def view_stock():
