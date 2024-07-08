@@ -84,20 +84,22 @@ def welcome():
                 Fore.YELLOW + Style.BRIGHT)
     time.sleep(1)
     typingPrint("     A sales and inventory management system "
-                "for Sarah's Screen Prints Inc.", Fore.WHITE)
+                "for Sarah's Screen Prints Inc.", Fore.WHITE + Style.BRIGHT)
     print("\n")
+    time.sleep(1)
+    typingPrint("     loading...",Fore.MAGENTA + Style.BRIGHT)
     time.sleep(3)
     clearScreen()
 
     print("\n")
     typingPrint(" Print Statement", Fore.MAGENTA + Style.BRIGHT)
-    typingPrint(" is a comprehensive inventory management system.\n")
+    typingPrint(" is a comprehensive sales and inventory management system.\n")
     time.sleep(1)
     typingPrint(" This program is for an artist's small "
-                "screen-printing business.\n")
+                "screen printing business.\n")
     time.sleep(1)
     typingPrint(" It enables users to monitor & update sales, "
-                "stock & materials data.\n")
+                "print stock & materials.\n")
     print("\n")
     time.sleep(2)
     typingPrint(" System loading, please wait...", Fore.YELLOW + Style.BRIGHT)
@@ -110,7 +112,7 @@ welcome()
 
 def options():
     print("\n")
-    print(Fore.GREEN + Style.BRIGHT + " Please choose from the menu below:\n")
+    print(Fore.GREEN + Style.BRIGHT + " Please choose from the following menu:\n")
     time.sleep(2)
     print("   1. Market Sales\n"
           "   2. Online Sales\n"
@@ -120,12 +122,11 @@ def options():
           "   6. Exit Program\n")
 
     while True:
-        data_str = input(Fore.GREEN + Style.BRIGHT +
-                         " Enter a number to access corresponding data & press enter: \n")
+        data_str = input(Fore.GREEN + Style.BRIGHT + " Enter a number:" + Fore.WHITE + " ")
         if data_str in ['1', '2', '3', '4', '5', '6']:
             break
         else:
-            print(Fore.RED + "Please choose a valid number")
+            print(Fore.RED + " Please choose a valid number")
 
     option = int(data_str)
     if option == 1:
@@ -150,7 +151,9 @@ def view_sales(sheet_name):
         sheet = SHEET.worksheet(sheet_name)
         sales_data = sheet.get_all_records()
         clearScreen()
-        typingPrint(f"Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
+        print("\n")
+        typingPrint(f" Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
+        print("\n")
         time.sleep(1)
         # Convert data to list of lists for tabulate
         data_list = [list(record.values()) for record in sales_data]
@@ -158,34 +161,42 @@ def view_sales(sheet_name):
         print(tabulate(data_list, headers=sales_data[0].keys(), tablefmt='fancy_grid'))
         print("\n")
     
-        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data: Y/N\n")
+        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
 
         if update_option.upper() == 'Y':
             #LOGIC - UPDATE LATER
-            print(Fore.YELLOW + "Updating data...")
+            print("\n")
+            print(Fore.YELLOW + " Updating data...")
             time.sleep(2)
-            print(Fore.GREEN + "Data updated successfully.")
+            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+            time.sleep(2)
+            print("\n")
+            while True:
+                return_option = input(Fore.YELLOW + Style.BRIGHT + " Return to Menu Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
+                if return_option.upper() == 'Y':
+                    clearScreen()
+                    options()
             continue
 
         elif update_option.upper() == 'N':
             while True:
-                return_option = input(Fore.YELLOW + " Return to Options: Y/N\n")
+                return_option = input(Fore.YELLOW + Style.BRIGHT + " Return to Menu Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
                 if return_option.upper() == 'Y':
                     clearScreen()
                     options()
                     return
                 elif return_option.upper() == 'N':
-                    exit_option = input(Fore.YELLOW + " Exit Program: Type X\n")
-                    if exit_option.upper() == 'X':
+                    exit_option = input(Fore.YELLOW + Style.BRIGHT + " Exit Program Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
+                    if exit_option.upper() == 'Y':
                        exit_program()
                        return
                     else:
-                        print(Fore.RED + "Invalid input. Please enter X to exit.")
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
             else:
-                print(Fore.RED + "Invalid input. Please enter Y to return to options or N to exit.")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
         
         else:
-            print(Fore.RED + "Invalid input. Please enter Y or N.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
 
 
 def view_stock():
@@ -196,40 +207,43 @@ def view_stock():
         sheet = SHEET.worksheet('Print Stock')
         stock_data = sheet.get_all_records()
         clearScreen()
-        typingPrint(f"Viewing Print Stock...\n", Fore.YELLOW + Style.BRIGHT)
+        typingPrint(f" Viewing Print Stock...\n", Fore.CYAN + Style.BRIGHT)
+        print("\n")
         time.sleep(1)
         data_list = [list(record.values()) for record in stock_data]
         print(tabulate(data_list, headers=stock_data[0].keys(), tablefmt='fancy_grid'))
         print("\n")
 
-        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data: Y/N\n")
+        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
 
         if update_option.upper() == 'Y':
             #LOGIC - UPDATE LATER
-            print(Fore.YELLOW + "Updating data...")
+            print("\n")
+            print(Fore.YELLOW + Style.BRIGHT + " Updating data...")
             time.sleep(2)
-            print(Fore.GREEN + "Data updated successfully.")
+            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+            time.sleep(1)
             continue
 
         elif update_option.upper() == 'N':
             while True:
-                return_option = input(Fore.YELLOW + " Return to Options: Y/N\n")
+                return_option = input(Fore.YELLOW + Style.BRIGHT + " Return to Menu Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
                 if return_option.upper() == 'Y':
                     clearScreen()
                     options()
                     return
                 elif return_option.upper() == 'N':
-                    exit_option = input(Fore.YELLOW + " Exit Program: Type X\n")
+                    exit_option = input(Fore.YELLOW + Style.BRIGHT + " Exit Program: Type X:" + Fore.WHITE + Style.BRIGHT + " ")
                     if exit_option.upper() == 'X':
                        exit_program()
                        return
                     else:
-                        print(Fore.RED + "Invalid input. Please enter X to exit.")
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter X to exit.")
             else:
-                print(Fore.RED + "Invalid input. Please enter Y to return to options or N to exit.")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y to return to options or N to exit.")
         
         else:
-            print(Fore.RED + "Invalid input. Please enter Y or N.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y or N.")
 
 
 def view_product_surplus():
@@ -240,40 +254,43 @@ def view_product_surplus():
         sheet = SHEET.worksheet('Product Surplus')
         surplus_data = sheet.get_all_records()
         clearScreen()
-        typingPrint(f"Viewing Product Surplus...\n", Fore.YELLOW + Style.BRIGHT)
+        typingPrint(f" Viewing Product Surplus...\n", Fore.CYAN + Style.BRIGHT)
+        print("\n")
         time.sleep(1)
         data_list = [list(record.values()) for record in surplus_data]
         print(tabulate(data_list, headers=surplus_data[0].keys(), tablefmt='fancy_grid'))
         print("\n")
 
-        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data: Y/N\n")
+        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
 
         if update_option.upper() == 'Y':
             #LOGIC - UPDATE LATER
-            print(Fore.YELLOW + "Updating data...")
+            print("\n")
+            print(Fore.YELLOW + Style.BRIGHT + " Updating data...")
             time.sleep(2)
-            print(Fore.GREEN + "Data updated successfully.")
+            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+            time.sleep(1)
             continue
 
         elif update_option.upper() == 'N':
             while True:
-                return_option = input(Fore.YELLOW + " Return to Options: Y/N\n")
+                return_option = input(Fore.YELLOW + Style.BRIGHT + " Return to Menu Y/N:"  + Fore.WHITE + Style.BRIGHT + " ")
                 if return_option.upper() == 'Y':
                     clearScreen()
                     options()
                     return
                 elif return_option.upper() == 'N':
-                    exit_option = input(Fore.YELLOW + " Exit Program: Type X\n")
+                    exit_option = input(Fore.YELLOW + " Exit Program: Type X:" + Fore.WHITE + Style.BRIGHT + " ")
                     if exit_option.upper() == 'X':
                        exit_program()
                        return
                     else:
-                        print(Fore.RED + "Invalid input. Please enter X to exit.")
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter X to exit.")
             else:
-                print(Fore.RED + "Invalid input. Please enter Y to return to options or N to exit.")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y to return to options or N to exit.")
         
         else:
-            print(Fore.RED + "Invalid input. Please enter Y or N.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y or N.")
 
 
 def view_materials():
@@ -284,45 +301,48 @@ def view_materials():
         sheet = SHEET.worksheet('Materials')
         materials_data = sheet.get_all_records()
         clearScreen()
-        typingPrint(f"Viewing Materials...\n", Fore.MAGENTA + Style.BRIGHT)
+        typingPrint(f" Viewing Materials...\n", Fore.MAGENTA + Style.BRIGHT)
+        print("\n")
         time.sleep(1)
         data_list = [list(record.values()) for record in materials_data]
         print(tabulate(data_list, headers=materials_data[0].keys(), tablefmt='fancy_grid'))
         print("\n")
 
-        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data: Y/N\n")
+        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
 
         if update_option.upper() == 'Y':
             #LOGIC - UPDATE LATER
-            print(Fore.YELLOW + "Updating data...")
+            print("\n")
+            print(Fore.YELLOW + Style.BRIGHT + " Updating data...")
             time.sleep(2)
-            print(Fore.GREEN + "Data updated successfully.")
+            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+            time.sleep(1)
             continue
 
         elif update_option.upper() == 'N':
             while True:
-                return_option = input(Fore.YELLOW + " Return to Options: Y/N\n")
+                return_option = input(Fore.YELLOW + Style.BRIGHT + " Return to Menu Y/N:" + Fore.WHITE + Style.BRIGHT + " ")
                 if return_option.upper() == 'Y':
                     clearScreen()
                     options()
                     return
                 elif return_option.upper() == 'N':
-                    exit_option = input(Fore.YELLOW + " Exit Program: Type X\n")
-                    if exit_option.upper() == 'X':
+                    exit_option = input(Fore.YELLOW + Style.BRIGHT + " Exit Program Y/N" + Fore.WHITE + Style.BRIGHT + " ")
+                    if exit_option.upper() == 'Y':
                        exit_program()
                        return
                     else:
-                        print(Fore.RED + "Invalid input. Please enter X to exit.")
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter X to exit.")
             else:
-                print(Fore.RED + "Invalid input. Please enter Y to return to options or N to exit.")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y to return to options or N to exit.")
         
         else:
-            print(Fore.RED + "Invalid input. Please enter Y or N.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y or N.")
 
 
 def exit_program():
     clearScreen()
-    typingPrint("Exiting the program, thank you...\n", Fore.YELLOW + Style.BRIGHT)
+    typingPrint(" Exiting the program, thank you for using Print Statement...\n", Fore.YELLOW + Style.BRIGHT)
     time.sleep(2)
     clearScreen()
     welcome()
