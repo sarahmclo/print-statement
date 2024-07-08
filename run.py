@@ -14,6 +14,9 @@ from colorama import Fore, Back, Style
 # Initialise colorama
 colorama.init(autoreset=True)
 
+# Import tabulate to return sheet values in table format
+from tabulate import tabulate
+
 # IAM Configuration
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -91,15 +94,19 @@ def welcome():
     clearScreen()
 
     print("\n")
-    typingPrint(" Print Statement", Fore.YELLOW + Style.BRIGHT)
+    typingPrint(" Print Statement", Fore.MAGENTA + Style.BRIGHT)
     typingPrint(" is a comprehensive inventory management system.\n")
     time.sleep(1)
     typingPrint(" This program is for an artist's small "
                 "screen-printing business.\n")
     time.sleep(1)
-    typingPrint(" It enables users to monitor and input sales, "
+    typingPrint(" It enables users to monitor & update sales, "
                 "stock, orders and materials data.\n")
+    print("\n")
+    time.sleep(2)
+    typingPrint(" System loading, please wait...", Fore.YELLOW + Style.BRIGHT)
     time.sleep(3)
+    clearScreen()
 
 
 welcome()
@@ -107,7 +114,7 @@ welcome()
 
 def options():
     print("\n")
-    print(Fore.YELLOW + Style.BRIGHT + " Please choose from the menu below:\n")
+    print(Fore.GREEN + Style.BRIGHT + " Please choose from the menu below:\n")
     time.sleep(2)
     print("   1. Market Sales\n"
           "   2. Online Sales\n"
@@ -117,8 +124,8 @@ def options():
           "   6. Exit Program\n")
 
     while True:
-        data_str = input(Fore.YELLOW + Style.BRIGHT +
-                         " Enter a number to access data here: \n")
+        data_str = input(Fore.GREEN + Style.BRIGHT +
+                         " Enter a number to access data here and press enter: \n")
         if data_str in ['1', '2', '3', '4', '5', '6']:
             break
         else:
@@ -146,11 +153,13 @@ def view_sales(sheet_name):
     sheet = SHEET.worksheet(sheet_name)
     sales_data = sheet.get_all_records()
     clearScreen()
-    typingPrint(f"Viewing {sheet_name}\n", Fore.GREEN + Style.BRIGHT)
+    typingPrint(f"Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
     time.sleep(1)
-    for record in sales_data:
-        print(record)
-    time.sleep(2)
+    # Convert data to list of lists for tabulate
+    data_list = [list(record.values()) for record in sales_data]
+    # Print data as a table
+    print(tabulate(data_list, headers=sales_data[0].keys(), tablefmt='fancy_grid'))
+    time.sleep(4)
     options()
 
 
@@ -161,11 +170,11 @@ def view_stock():
     sheet = SHEET.worksheet('Print Stock')
     stock_data = sheet.get_all_records()
     clearScreen()
-    typingPrint(f"Viewing Print Stock\n", Fore.GREEN + Style.BRIGHT)
+    typingPrint(f"Viewing Print Stock...\n", Fore.YELLOW + Style.BRIGHT)
     time.sleep(1)
-    for record in stock_data:
-        print(record)
-    time.sleep(2)
+    data_list = [list(record.values()) for record in stock_data]
+    print(tabulate(data_list, headers=stock_data[0].keys(), tablefmt='fancy_grid'))
+    time.sleep(4)
     options()
 
 
@@ -176,11 +185,11 @@ def view_product_surplus():
     sheet = SHEET.worksheet('Product Surplus')
     surplus_data = sheet.get_all_records()
     clearScreen()
-    typingPrint(f"Viewing Product Surplus\n", Fore.GREEN + Style.BRIGHT)
+    typingPrint(f"Viewing Product Surplus...\n", Fore.YELLOW + Style.BRIGHT)
     time.sleep(1)
-    for record in surplus_data:
-        print(record)
-    time.sleep(2)
+    data_list = [list(record.values()) for record in surplus_data]
+    print(tabulate(data_list, headers=surplus_data[0].keys(), tablefmt='fancy_grid'))
+    time.sleep(4)
     options()
 
 
@@ -191,17 +200,17 @@ def view_materials():
     sheet = SHEET.worksheet('Materials')
     materials_data = sheet.get_all_records()
     clearScreen()
-    typingPrint(f"Viewing Materials\n", Fore.GREEN + Style.BRIGHT)
+    typingPrint(f"Viewing Materials...\n", Fore.MAGENTA + Style.BRIGHT)
     time.sleep(1)
-    for record in surplus_data:
-        print(record)
-    time.sleep(2)
+    data_list = [list(record.values()) for record in materials_data]
+    print(tabulate(data_list, headers=materials_data[0].keys(), tablefmt='fancy_grid'))
+    time.sleep(4)
     options()
 
 
 def exit_program():
     clearScreen()
-    typingPrint("Exiting the program...\n", Fore.RED + Style.BRIGHT)
+    typingPrint("Exiting the program, thank you...\n", Fore.YELLOW + Style.BRIGHT)
     time.sleep(2)
     clearScreen()
     welcome()
