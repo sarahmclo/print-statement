@@ -10,6 +10,8 @@ import time
 # https://linuxhint.com/colorama-python/
 import colorama
 from colorama import Fore, Back, Style
+
+# Initialise colorama
 colorama.init(autoreset=True)
 
 # IAM Configuration
@@ -55,7 +57,7 @@ def welcome():
     """
     Display Print Statement Banner
     """
-    print(Fore.MAGENTA + Style.BRIGHT + r'''
+    print(Fore.MAGENTA + Style.BRIGHT + '''
        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        +----------------------------------------------------------------+
        |  ######                                                        |
@@ -85,7 +87,7 @@ def welcome():
     typingPrint("     A sales and inventory management system "
                 "for Sarah's Screen Prints Inc.", Fore.WHITE)
     print("\n")
-    time.sleep(4.5)
+    time.sleep(4)
     clearScreen()
 
     print("\n")
@@ -95,8 +97,8 @@ def welcome():
     typingPrint(" This program is for an artist's small "
                 "screen-printing business.\n")
     time.sleep(1)
-    typingPrint(" It enables users to monitor sales, "
-                "stock, orders and materials.\n")
+    typingPrint(" It enables users to monitor and input sales, "
+                "stock, orders and materials data.\n")
     time.sleep(3)
 
 
@@ -105,7 +107,6 @@ welcome()
 
 def options():
     print("\n")
-
     print(Fore.YELLOW + Style.BRIGHT + " Please choose from the menu below:\n")
     time.sleep(2)
     print("   1. Market Sales\n"
@@ -118,33 +119,92 @@ def options():
     while True:
         data_str = input(Fore.YELLOW + Style.BRIGHT +
                          " Enter a number to access data here: \n")
-
-    """
-    while True:
-        try:
-            option = int(typeInput("
-            Choose a number to access corresponding data:\n"))
-            if option == 1:
-                view_sales()
-                break
-            elif option == 2:
-                view_stock()
-                break
-            elif option == 3:
-                view_materials()
-                break
-            elif option == 4:
-                update_sales()
-                break
-            elif option == 5:
-                update_stock()
-                break
-            elif option == 6:
-                update_materials()
-                break
-        except ValueError:
+        if data_str in ['1', '2', '3', '4', '5', '6']:
+            break
+        else:
             print(Fore.RED + "Please choose a valid number")
+
+    option = int(data_str)
+    if option == 1:
+        view_sales('Market Sales')
+    elif option == 2:
+         view_sales('Online Sales')
+    elif option == 3:
+        view_stock()
+    elif option == 4:
+        view_product_surplus()
+    elif option == 5:
+        view_materials()
+    elif option == 6:
+        exit_program()
+
+
+def view_sales(sheet_name):
     """
+    View sales data from specified sheet
+    """
+    sheet = SHEET.worksheet(sheet_name)
+    sales_data = sheet.get_all_records()
+    clearScreen()
+    typingPrint(f"Viewing {sheet_name}\n", Fore.GREEN + Style.BRIGHT)
+    time.sleep(1)
+    for record in sales_data:
+        print(record)
+    time.sleep(2)
+    options()
+
+
+def view_stock():
+    """
+    View stock data
+    """
+    sheet = SHEET.worksheet('Print Stock')
+    stock_data = sheet.get_all_records()
+    clearScreen()
+    typingPrint(f"Viewing Print Stock\n", Fore.GREEN + Style.BRIGHT)
+    time.sleep(1)
+    for record in stock_data:
+        print(record)
+    time.sleep(2)
+    options()
+
+
+def view_product_surplus():
+    """
+    View product surplus data
+    """
+    sheet = SHEET.worksheet('Product Surplus')
+    surplus_data = sheet.get_all_records()
+    clearScreen()
+    typingPrint(f"Viewing Product Surplus\n", Fore.GREEN + Style.BRIGHT)
+    time.sleep(1)
+    for record in surplus_data:
+        print(record)
+    time.sleep(2)
+    options()
+
+
+def view_materials():
+    """
+    View materials data
+    """
+    sheet = SHEET.worksheet('Materials')
+    materials_data = sheet.get_all_records()
+    clearScreen()
+    typingPrint(f"Viewing Materials\n", Fore.GREEN + Style.BRIGHT)
+    time.sleep(1)
+    for record in surplus_data:
+        print(record)
+    time.sleep(2)
+    options()
+
+
+def exit_program():
+    clearScreen()
+    typingPrint("Exiting the program...\n", Fore.RED + Style.BRIGHT)
+    time.sleep(2)
+    clearScreen()
+    sys.exit()
 
 
 options()
