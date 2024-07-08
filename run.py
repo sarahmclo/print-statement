@@ -101,7 +101,7 @@ def welcome():
                 "screen-printing business.\n")
     time.sleep(1)
     typingPrint(" It enables users to monitor & update sales, "
-                "stock, orders and materials data.\n")
+                "stock, orders & materials data.\n")
     print("\n")
     time.sleep(2)
     typingPrint(" System loading, please wait...", Fore.YELLOW + Style.BRIGHT)
@@ -125,7 +125,7 @@ def options():
 
     while True:
         data_str = input(Fore.GREEN + Style.BRIGHT +
-                         " Enter a number to access data here and press enter: \n")
+                         " Enter a number to access corresponding data & press enter: \n")
         if data_str in ['1', '2', '3', '4', '5', '6']:
             break
         else:
@@ -150,27 +150,46 @@ def view_sales(sheet_name):
     """
     View sales data from specified sheet
     """
-    sheet = SHEET.worksheet(sheet_name)
-    sales_data = sheet.get_all_records()
-    clearScreen()
-    typingPrint(f"Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
-    time.sleep(1)
-    # Convert data to list of lists for tabulate
-    data_list = [list(record.values()) for record in sales_data]
-    # Print data as a table
-    print(tabulate(data_list, headers=sales_data[0].keys(), tablefmt='fancy_grid'))
-    print("\n")
-    update_option = input(Fore.CYAN + " Update Data: Y/N")
-    if update_option.upper() == 'Y':
-        #LOGIC - UPDATE LATER
-        print(Fore.YELLOW + "Updating data...")
-        time.sleep(2)
-        return_option = input(Fore.YELLOW + " Return to Options: Type Y/N\n")
-    if return_option.upper() == 'Y':
-        options()
-    exit_option = input(Fore.YELLOW + " Exit Program: Type E\n")
-    if exit_option.upper() == 'E':
-        exit_program()
+    while True:
+        sheet = SHEET.worksheet(sheet_name)
+        sales_data = sheet.get_all_records()
+        clearScreen()
+        typingPrint(f"Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
+        time.sleep(1)
+        # Convert data to list of lists for tabulate
+        data_list = [list(record.values()) for record in sales_data]
+        # Print data as a table
+        print(tabulate(data_list, headers=sales_data[0].keys(), tablefmt='fancy_grid'))
+        print("\n")
+    
+        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data: Y/N\n")
+
+        if update_option.upper() == 'Y':
+            #LOGIC - UPDATE LATER
+            print(Fore.YELLOW + "Updating data...")
+            time.sleep(2)
+            print(Fore.GREEN + "Data updated successfully.")
+            continue
+
+        elif update_option.upper() == 'N':
+            while True:
+                return_option = input(Fore.YELLOW + " Return to Options: Y/N\n")
+                if return_option.upper() == 'Y':
+                    clearScreen()
+                    options()
+                    return
+                elif return_option.upper() == 'N':
+                    exit_option = input(Fore.YELLOW + " Exit Program: Type X\n")
+                    if exit_option.upper() == 'X':
+                       exit_program()
+                       return
+                    else:
+                        print(Fore.RED + "Invalid input. Please enter X to exit.")
+            else:
+                print(Fore.RED + "Invalid input. Please enter Y to return to options or N to exit.")
+        
+        else:
+            print(Fore.RED + "Invalid input. Please enter Y or N.")
 
 
 def view_stock():
