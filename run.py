@@ -113,8 +113,7 @@ welcome()
 
 def options():
     print("\n")
-    print(Fore.GREEN + Style.BRIGHT + " Please choose from "
-                                      "the following menu:\n")
+    print(Fore.GREEN + Style.BRIGHT + " Main Menu:\n")
     time.sleep(2)
     print("   1. Market Sales\n"
           "   2. Online Sales\n"
@@ -125,7 +124,7 @@ def options():
 
     while True:
         data_str = input(Fore.GREEN + Style.BRIGHT +
-                         " Enter a number:" + Fore.WHITE + " ")
+                         " Enter a number to view/update data:" + Fore.WHITE + " ")
         if data_str in ['1', '2', '3', '4', '5', '6']:
             break
         else:
@@ -164,9 +163,12 @@ def view_sales(sheet_name):
         print(tabulate(data_list, headers=sales_data[0].keys(),
               tablefmt='fancy_grid'))
         print("\n")
-        update_option = input(Fore.GREEN + Style.BRIGHT +
-                              " Update Data Y/N:" + Fore.WHITE +
-                              Style.BRIGHT + " ")
+        while True:
+            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
+            if update_option in ['Y', 'N']:
+                break
+            else:
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y or N.")
 
         if update_option.upper() == 'Y':
             # LOGIC - UPDATE LATER
@@ -176,40 +178,34 @@ def view_sales(sheet_name):
             print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
             time.sleep(2)
             print("\n")
-            while True:
-                return_option = input(Fore.YELLOW + Style.BRIGHT +
-                                      " Return to Menu Y/N:" +
-                                      Fore.WHITE + Style.BRIGHT + " ")
-                if return_option.upper() == 'Y':
-                    clearScreen()
-                    options()
-            continue
-
-        elif update_option.upper() == 'N':
-            while True:
-                return_option = input(Fore.YELLOW + Style.BRIGHT +
-                                      " Return to Menu Y/N:" + Fore.WHITE
-                                      + Style.BRIGHT + " ")
-                if return_option.upper() == 'Y':
+        
+        while True:
+            return_option = input(Fore.GREEN + Style.BRIGHT +
+                                  " Return to Menu Y or N: " + Fore.WHITE +
+                              Style.BRIGHT).strip().upper()
+            if return_option == 'Y':
+                clearScreen()
+                options()
+                return
+            elif return_option == 'N':
+                exit_option = input(Fore.MAGENTA + Style.BRIGHT +
+                                    " Exit Program Y or N: " + Fore.WHITE +
+                              Style.BRIGHT).strip().upper()
+                if exit_option == 'Y':
+                    exit_program()
+                    return
+                elif exit_option == 'N':
+                    print("\n")
+                    print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                    time.sleep(2)
                     clearScreen()
                     options()
                     return
-                elif return_option.upper() == 'N':
-                    exit_option = input(Fore.YELLOW + Style.BRIGHT +
-                                        " Exit Program Y/N:" + Fore.WHITE
-                                        + Style.BRIGHT + " ")
-                    if exit_option.upper() == 'Y':
-                        exit_program()
-                        return
-                    else:
-                        print(Fore.RED + Style.BRIGHT +
-                              " Invalid input. Please enter correctly.")
+                else:
+                    print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
             else:
-                print(Fore.RED + Style.BRIGHT +
-                      " Invalid input. Please enter correctly.")
-        else:
-            print(Fore.RED + Style.BRIGHT +
-                  " Invalid input. Please enter correctly.")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
+        break
 
 
 def view_stock():
@@ -381,9 +377,8 @@ def view_materials():
 
 def exit_program():
     clearScreen()
-    typingPrint(" Exiting the program, thank you for using"
-                "Print Statement...\n", Fore.YELLOW + Style.BRIGHT)
-    time.sleep(2)
+    typingPrint(Fore.YELLOW + Style.BRIGHT + " Exiting the program, thank you for using Print Statement.")
+    time.sleep(3)
     clearScreen()
     welcome()
     options()
