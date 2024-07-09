@@ -9,7 +9,9 @@ Run the Print Statement program [here](https://print-statement-32b6316d2a47.hero
 Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2cyK-pgUHrKHa2XV_88RbtFrG6MvRe8Mn8bJPPdHk/edit?usp=sharing)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sarahmclo/print-statement)
+![GitHub language count](https://img.shields.io/github/languages/count/sarahmclo/print-statement)
 ![GitHub top language](https://img.shields.io/github/languages/top/sarahmclo/print-statement)
+![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Fprint-statement-32b6316d2a47.herokuapp.com%2F)
 
 ## Table of Contents
 1. [User Experience (UX)](#user-experience)
