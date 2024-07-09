@@ -118,14 +118,13 @@ def options():
     print("   1. Market Sales\n"
           "   2. Online Sales\n"
           "   3. Print Stock\n"
-          "   4. Product Surplus\n"
-          "   5. Materials\n"
-          "   6. Exit Program\n")
+          "   4. Materials\n"
+          "   5. Exit Program\n")
 
     while True:
         data_str = input(Fore.GREEN + Style.BRIGHT +
                          " Enter a number to view/update data:" + Fore.WHITE + " ")
-        if data_str in ['1', '2', '3', '4', '5', '6']:
+        if data_str in ['1', '2', '3', '4', '5']:
             break
         else:
             print(Fore.RED + " Please choose a valid number")
@@ -138,11 +137,62 @@ def options():
     elif option == 3:
         view_stock()
     elif option == 4:
-        view_product_surplus()
-    elif option == 5:
         view_materials()
-    elif option == 6:
+    elif option == 5:
         exit_program()
+
+
+def update_data(sheet, headers):
+    """
+    Function to allow for user to update data in sheets.
+    """
+    # Display current data
+    data = sheet.get_all_records()
+    data_list = [list(record.values()) for record in data]
+    # Print data as a table
+    clearScreen()
+    print(tabulate(data_list, headers=headers, tablefmt='fancy_grid'))
+    print("\n")
+
+    # Choose which row for data update
+    while True:
+        try:
+            row_index = int(input(Fore.YELLOW + f" Enter row you want to update (1 to {len(data)}: ") + Fore.WHITE)
+            if  1 <= row_index <= len(data):
+                break
+            else:
+                print(Fore.RED + f" Invalid row. Please enter a number between 1 and {len(data)}.")
+        except ValueError:
+            print(Fore.RED + " Invalid input. Please enter a valid number.")
+
+    # Choose which column for data update
+    while True:
+        print("\n")
+        print(Fore.GREEN + " Columns for update:")
+        for i, header in enumerate(headers, start=1):
+            print(f" {i}. {header}")
+        try:
+            column_index = int(input(Fore.YELLOW + f" Enter column you want to update (1 to {len(headers)}): ") + Fore.WHITE)
+            if  1 <= column_index <= len(headers):
+                break
+            else:
+                print(Fore.RED + f" Invalid column. Please enter a number between 1 and {len(headers)}.")
+        except ValueError:
+            print(Fore.RED + " Invalid input. Please enter a valid number.")
+
+    # Input new value
+    new_value = input(Fore.YELLOW + f" Enter new value for '{headers[column_index-1]}': ") + Fore.WHITE
+    # Update cell
+    cell_to_update = headers[column_index-1] + str(row_index + 1)
+    sheet.update(cell_to_update, new_value)
+
+    # Update success
+    print("\n")
+    print(Fore.YELLOW + " Updating data...")
+    time.sleep(2)
+    print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+    time.sleep(2)
+    print("\n")
 
 
 def view_sales(sheet_name): # Sales Function
@@ -163,49 +213,36 @@ def view_sales(sheet_name): # Sales Function
         print(tabulate(data_list, headers=sales_data[0].keys(),
               tablefmt='fancy_grid'))
         print("\n")
-        while True:
-            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
-            if update_option in ['Y', 'N']:
-                break
-            else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter Y or N.")
 
+        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
         if update_option.upper() == 'Y':
-            # LOGIC - UPDATE LATER
-            print("\n")
-            print(Fore.YELLOW + " Updating data...")
-            time.sleep(2)
-            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
-            time.sleep(2)
-            print("\n")
+            update_data(sheet, list(sales_data[0].keys()))
         
-        while True:
-            return_option = input(Fore.GREEN + Style.BRIGHT +
-                                  " Return to Menu Y or N: " + Fore.WHITE +
+        return_option = input(Fore.GREEN + Style.BRIGHT +
+                              " Return to Menu Y/N: " + Fore.WHITE +
                               Style.BRIGHT).strip().upper()
-            if return_option == 'Y':
+        if return_option == 'Y':
+            clearScreen()
+            options()
+            return
+        elif return_option == 'N':
+            exit_option = input(Fore.MAGENTA + Style.BRIGHT +
+                                " Exit Program Y/N: " + Fore.WHITE +
+                                Style.BRIGHT).strip().upper()
+            if exit_option == 'Y':
+                exit_program()
+                return
+            elif exit_option == 'N':
+                print("\n")
+                print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                time.sleep(2)
                 clearScreen()
                 options()
                 return
-            elif return_option == 'N':
-                exit_option = input(Fore.MAGENTA + Style.BRIGHT +
-                                    " Exit Program Y or N: " + Fore.WHITE +
-                              Style.BRIGHT).strip().upper()
-                if exit_option == 'Y':
-                    exit_program()
-                    return
-                elif exit_option == 'N':
-                    print("\n")
-                    print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
-                    time.sleep(2)
-                    clearScreen()
-                    options()
-                    return
-                else:
-                    print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
             else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
-        break
+                print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
+        else:
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
 
 
 def view_stock(): # Stock Function
@@ -227,65 +264,6 @@ def view_stock(): # Stock Function
 
         update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N:"
                               + Fore.WHITE + Style.BRIGHT + " ")
-
-        if update_option.upper() == 'Y':
-            # LOGIC - UPDATE LATER
-            print("\n")
-            print(Fore.YELLOW + " Updating data...")
-            time.sleep(2)
-            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
-            time.sleep(2)
-            print("\n")
-        
-        while True:
-            return_option = input(Fore.GREEN + Style.BRIGHT +
-                                  " Return to Menu Y or N: " + Fore.WHITE +
-                              Style.BRIGHT).strip().upper()
-            if return_option == 'Y':
-                clearScreen()
-                options()
-                return
-            elif return_option == 'N':
-                exit_option = input(Fore.MAGENTA + Style.BRIGHT +
-                                    " Exit Program Y or N: " + Fore.WHITE +
-                              Style.BRIGHT).strip().upper()
-                if exit_option == 'Y':
-                    exit_program()
-                    return
-                elif exit_option == 'N':
-                    print("\n")
-                    print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
-                    time.sleep(2)
-                    clearScreen()
-                    options()
-                    return
-                else:
-                    print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
-            else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
-        break
-
-
-def view_product_surplus(): # Surplus Function
-    """
-    View product surplus data
-    """
-    while True:
-        sheet = SHEET.worksheet('Product Surplus')
-        surplus_data = sheet.get_all_records()
-        clearScreen()
-        print("\n")
-        typingPrint(f" Viewing Product Surplus...\n", Fore.CYAN + Style.BRIGHT)
-        print("\n")
-        time.sleep(1)
-        data_list = [list(record.values()) for record in surplus_data]
-        print(tabulate(data_list, headers=surplus_data[0].keys(),
-              tablefmt='fancy_grid'))
-        print("\n")
-
-        update_option = input(Fore.GREEN + Style.BRIGHT +
-                              " Update Data Y/N:" + Fore.WHITE
-                              + Style.BRIGHT + " ")
 
         if update_option.upper() == 'Y':
             # LOGIC - UPDATE LATER
