@@ -154,27 +154,43 @@ def update_data(sheet, headers):
 
     display_table(data, headers)
 
-    row_index = get_valid_row_index(data)
-    column_index = get_valid_column_index(headers)
+    # Prompt user for print number and day to input data to specific cell
+    print_number = input(Fore.YELLOW + f" Enter print number: " + Fore.WHITE)
+    day = input(Fore.YELLOW + f" Enter day: " + Fore.WHITE)
+
+    # Find column index for print and day
+    column_index = None
+    for i, header in enumerate(headers, start=1):
+        if header.startswith(f"print #{print_number}") and day.lower() in header.lower():
+            column_index = i
+            break
+    if column_index is None:
+        print(Fore.RED + Style.BRIGHT + f"No column found for print #{print_number} {day}.")
+        return
 
     # Input new value
     new_value = input(f" Enter new value for '{headers[column_index-1]}': ")
     # Update cell
-    cell_to_update = headers[column_index-1] + str(row_index + 1)
+    cell_to_update = sheet.cell(row_index+1, column_index)
 
-    try:
-        sheet.update(cell_to_update, new_value)
-        print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
-    except Exception as e:
-        print(f"Error updating data: {e}")
+    # Check if numeric
+    if isinstance(cell_to_update, new_value, (int, float)):
+        cell_to_update.value = float(new_value)
+        try:
+            sheet.update_cells([cell_to_update])
+            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+        except Exception as e:
+            print(f"Error updating data: {e}")
+    else:
+        print(Fore.RED + Style.BRIGHT + "Cannot update non-numeric values. Please enter valid data")
 
     
 def get_valid_row_index(data):
     while True:
         try:
-            row_index = int(input(Fore.YELLOW + f" Enter row you want to update (1 to {len(data)}: ") + Fore.WHITE)
-            if  1 <= row_index <= len(data):
-                return row_index
+            row_index = input(Fore.YELLOW + f" Enter row you want to update (1 to {len(data)}): " + Fore.WHITE)
+            if row_index.isdigit() and 1 <= int(row_index) <= len(data):
+                return int(row_index)
             else:
                 print(Fore.RED + f" Invalid row. Please enter a number between 1 and {len(data)}.")
         except ValueError:
@@ -223,6 +239,7 @@ def view_sales(sheet_name): # Sales Function
         
         #Print data as a table
         display_table(sales_data, headers)
+        print("\n")
 
         update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
         if update_option.upper() == 'Y':
