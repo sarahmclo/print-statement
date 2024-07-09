@@ -147,52 +147,63 @@ def update_data(sheet, headers):
     Function to allow for user to update data in sheets.
     """
     # Display current data
+    print("\n")
     data = sheet.get_all_records()
     if not data:
         print("No data available to update.")
         return
 
-    display_table(data, headers)
-
     # Prompt user for print number and day to input data to specific cell
-    print_number = input(Fore.YELLOW + Style.BRIGHT + f" Enter print number: " + Fore.WHITE + Style.BRIGHT)
-    day = input(Fore.YELLOW + Style.BRIGHT + f" Enter day: " + Fore.WHITE)
+    day = input(Fore.YELLOW + Style.BRIGHT + f" Enter day (Mon, Tues, Wed, Thurs, Fri): " + Fore.WHITE + Style.BRIGHT)
+    print_number = input(Fore.YELLOW + Style.BRIGHT + f" Enter print #: (1, 2, 3): " + Fore.WHITE + Style.BRIGHT)
+    
 
     # Find column index for print and day
     column_index = None
     for i, header in enumerate(headers, start=1):
-        if header.startswith(f"print #{print_number}") and day.lower() in header.lower():
+        if header.startswith(f"print #{print_number}"):
             column_index = i
             break
     if column_index is None:
-        print(Fore.RED + Style.BRIGHT + f"No column found for print #{print_number} {day}.")
+        print(Fore.RED + Style.BRIGHT + f"No column found for print #{print_number}.")
+        return
+
+    row_index = None
+    for i, record in enumerate(data, start=1):
+        if record['Market Sales'] == day:
+            row_index = i + 1 # Do not allow for header update
+            break
+    if row_index is None:
+        print(Fore.RED + Style.BRIGHT + f"No row found for {day}.")
         return
 
     # Input new value
-    new_value = input(f" Enter new value for '{headers[column_index-1]}': ")
+    new_value = input(Fore.MAGENTA + Style.BRIGHT + f" Update data by entering new value for '{headers[column_index-1]}' on '{day}': " + Fore.WHITE + Style.BRIGHT)
     # Update cell
-    cell_to_update = sheet.cell(row_index+1, column_index)
-
-    # Check if numeric
-    if isinstance(cell_to_update, new_value, (int, float)):
+    cell_to_update = sheet.cell(row_index, column_index)
+    try:
         cell_to_update.value = float(new_value)
-        try:
-            sheet.update_cells([cell_to_update])
-            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
-        except Exception as e:
-            print(f"Error updating data: {e}")
-    else:
-        print(Fore.RED + Style.BRIGHT + "Cannot update non-numeric values. Please enter valid data")
+        sheet.update_cells([cell_to_update])
+        print("\n")
+        time.sleep(1)
+        typingPrint(" Data updated successfully!/n", Fore.GREEN + Style.BRIGHT)
+        time.sleep(1)
+        typingPrint(" Reloading updated Market Sales...", Fore.YELLOW + Style.BRIGHT)
+        time.sleep(3)
+        # Reload Market Sales
+        view_sales('Market Sales')
+    except Exception as e:
+        print(f" Error updating data: {e}")
 
-    
+
 def get_valid_row_index(data):
     while True:
         try:
-            row_index = input(Fore.YELLOW + Style.BRIGHT + f" Enter row you want to update (1 to {len(data)}): " + Fore.WHITE)
-            if row_index.isdigit() and 1 <= int(row_index) <= len(data):
+            row_index = input(Fore.YELLOW + Style.BRIGHT + f" Enter row you want to update (2 to {len(data)+1}): " + Fore.WHITE)
+            if row_index.isdigit() and 2 <= int(row_index) <= len(data) +1:
                 return int(row_index)
             else:
-                print(Fore.RED + Style.BRIGHT + f" Invalid row. Please enter a number between 1 and {len(data)}.")
+                print(Fore.RED + Style.BRIGHT + f" Invalid row. Please enter a number between 2 and {len(data)+1}.")
         except ValueError:
             print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter a valid number.")
 
@@ -220,7 +231,6 @@ def display_table(data, headers):
     print(tabulate(data_list, headers=headers, tablefmt='fancy_grid'))
  
 
-
 def view_sales(sheet_name): # Sales Function
     """
     View sales data from specified sheet
@@ -232,7 +242,7 @@ def view_sales(sheet_name): # Sales Function
 
         clearScreen()
         print("\n")
-        typingPrint(f" Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
+        typingPrint(f" viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
         print("\n")
         time.sleep(1)
         
