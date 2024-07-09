@@ -116,15 +116,14 @@ def options():
     print(Fore.GREEN + Style.BRIGHT + " Main Menu:\n")
     time.sleep(2)
     print("   1. Market Sales\n"
-          "   2. Online Sales\n"
-          "   3. Print Stock\n"
-          "   4. Materials\n"
-          "   5. Exit Program\n")
+          "   2. Print Stock\n"
+          "   3. Materials\n"
+          "   4. Exit Program\n")
 
     while True:
         data_str = input(Fore.GREEN + Style.BRIGHT +
                          " Enter a number to view/update data:" + Fore.WHITE + Style.BRIGHT + " ")
-        if data_str in ['1', '2', '3', '4', '5']:
+        if data_str in ['1', '2', '3', '4']:
             break
         else:
             print(Fore.RED + Style.BRIGHT + " Please choose a valid number")
@@ -133,12 +132,10 @@ def options():
     if option == 1:
         view_sales('Market Sales')
     elif option == 2:
-        view_sales('Online Sales')
-    elif option == 3:
         view_stock()
-    elif option == 4:
+    elif option == 3:
         view_materials()
-    elif option == 5:
+    elif option == 4:
         exit_program()
 
 
