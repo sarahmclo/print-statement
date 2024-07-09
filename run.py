@@ -97,10 +97,10 @@ def welcome():
     typingPrint(" is a comprehensive sales and inventory management system.\n")
     time.sleep(1)
     typingPrint(" This program is for an artist's small "
-                "screen printing business.\n")
+                "screen-printing business.\n")
     time.sleep(1)
-    typingPrint(" It enables users to monitor & update sales, "
-                "print stock & materials.\n")
+    typingPrint(" It enables users to monitor & update print sales, "
+                "stock & materials.\n")
     print("\n")
     time.sleep(2)
     typingPrint(" System loading, please wait...", Fore.YELLOW + Style.BRIGHT)
@@ -123,11 +123,11 @@ def options():
 
     while True:
         data_str = input(Fore.GREEN + Style.BRIGHT +
-                         " Enter a number to view/update data:" + Fore.WHITE + " ")
+                         " Enter a number to view/update data:" + Fore.WHITE + Style.BRIGHT + " ")
         if data_str in ['1', '2', '3', '4', '5']:
             break
         else:
-            print(Fore.RED + " Please choose a valid number")
+            print(Fore.RED + Style.BRIGHT + " Please choose a valid number")
 
     option = int(data_str)
     if option == 1:
@@ -155,8 +155,8 @@ def update_data(sheet, headers):
     display_table(data, headers)
 
     # Prompt user for print number and day to input data to specific cell
-    print_number = input(Fore.YELLOW + f" Enter print number: " + Fore.WHITE)
-    day = input(Fore.YELLOW + f" Enter day: " + Fore.WHITE)
+    print_number = input(Fore.YELLOW + Style.BRIGHT + f" Enter print number: " + Fore.WHITE + Style.BRIGHT)
+    day = input(Fore.YELLOW + Style.BRIGHT + f" Enter day: " + Fore.WHITE)
 
     # Find column index for print and day
     column_index = None
@@ -188,29 +188,29 @@ def update_data(sheet, headers):
 def get_valid_row_index(data):
     while True:
         try:
-            row_index = input(Fore.YELLOW + f" Enter row you want to update (1 to {len(data)}): " + Fore.WHITE)
+            row_index = input(Fore.YELLOW + Style.BRIGHT + f" Enter row you want to update (1 to {len(data)}): " + Fore.WHITE)
             if row_index.isdigit() and 1 <= int(row_index) <= len(data):
                 return int(row_index)
             else:
-                print(Fore.RED + f" Invalid row. Please enter a number between 1 and {len(data)}.")
+                print(Fore.RED + Style.BRIGHT + f" Invalid row. Please enter a number between 1 and {len(data)}.")
         except ValueError:
-            print(Fore.RED + " Invalid input. Please enter a valid number.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter a valid number.")
 
 
 def get_valid_column_index(headers):
     while True:
         try:
             print("\n")
-            print(Fore.GREEN + " Columns for update: ")
+            print(Fore.GREEN + Style.BRIGHT + " Columns for update: ")
             for i, header in enumerate(headers, start=1):
                 print(f" {i}. {header}")
-            column_index = int(input(Fore.YELLOW + f" Enter column you want to update (1 to {len(headers)}): "))
+            column_index = int(input(Fore.YELLOW + Style.BRIGHT + f" Enter column you want to update (1 to {len(headers)}): "))
             if  1 <= column_index <= len(headers):
                 return column_index
             else:
-                print(Fore.RED + f" Invalid column. Please enter a number between 1 and {len(headers)}.")
+                print(Fore.RED + Style.BRIGHT + f" Invalid column. Please enter a number between 1 and {len(headers)}.")
         except ValueError:
-            print(Fore.RED + " Invalid input. Please enter a valid number.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter a valid number.")
 
 def display_table(data, headers):
     if not data:
@@ -295,7 +295,7 @@ def view_stock(): # Stock Function
         if update_option.upper() == 'Y':
             # LOGIC - UPDATE LATER
             print("\n")
-            print(Fore.YELLOW + " Updating data...")
+            print(Fore.YELLOW + Style.BRIGHT + " Updating data...")
             time.sleep(2)
             print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
             time.sleep(2)
@@ -354,7 +354,7 @@ def view_materials(): # Materials Function
         if update_option.upper() == 'Y':
             # LOGIC - UPDATE LATER
             print("\n")
-            print(Fore.YELLOW + " Updating data...")
+            print(Fore.YELLOW + Style.BRIGHT + " Updating data...")
             time.sleep(2)
             print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
             time.sleep(2)
