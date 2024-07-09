@@ -148,51 +148,61 @@ def update_data(sheet, headers):
     """
     # Display current data
     data = sheet.get_all_records()
-    data_list = [list(record.values()) for record in data]
-    # Print data as a table
-    clearScreen()
-    print(tabulate(data_list, headers=headers, tablefmt='fancy_grid'))
-    print("\n")
+    if not data:
+        print("No data available to update.")
+        return
 
-    # Choose which row for data update
+    display_table(data, headers)
+
+    row_index = get_valid_row_index(data)
+    column_index = get_valid_column_index(headers)
+
+    # Input new value
+    new_value = input(f" Enter new value for '{headers[column_index-1]}': ")
+    # Update cell
+    cell_to_update = headers[column_index-1] + str(row_index + 1)
+
+    try:
+        sheet.update(cell_to_update, new_value)
+        print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
+    except Exception as e:
+        print(f"Error updating data: {e}")
+
+    
+def get_valid_row_index(data):
     while True:
         try:
             row_index = int(input(Fore.YELLOW + f" Enter row you want to update (1 to {len(data)}: ") + Fore.WHITE)
             if  1 <= row_index <= len(data):
-                break
+                return row_index
             else:
                 print(Fore.RED + f" Invalid row. Please enter a number between 1 and {len(data)}.")
         except ValueError:
             print(Fore.RED + " Invalid input. Please enter a valid number.")
 
-    # Choose which column for data update
+
+def get_valid_column_index(headers):
     while True:
-        print("\n")
-        print(Fore.GREEN + " Columns for update:")
-        for i, header in enumerate(headers, start=1):
-            print(f" {i}. {header}")
         try:
-            column_index = int(input(Fore.YELLOW + f" Enter column you want to update (1 to {len(headers)}): ") + Fore.WHITE)
+            print("\n")
+            print(Fore.GREEN + " Columns for update: ")
+            for i, header in enumerate(headers, start=1):
+                print(f" {i}. {header}")
+            column_index = int(input(Fore.YELLOW + f" Enter column you want to update (1 to {len(headers)}): "))
             if  1 <= column_index <= len(headers):
-                break
+                return column_index
             else:
                 print(Fore.RED + f" Invalid column. Please enter a number between 1 and {len(headers)}.")
         except ValueError:
             print(Fore.RED + " Invalid input. Please enter a valid number.")
 
-    # Input new value
-    new_value = input(Fore.YELLOW + f" Enter new value for '{headers[column_index-1]}': ") + Fore.WHITE
-    # Update cell
-    cell_to_update = headers[column_index-1] + str(row_index + 1)
-    sheet.update(cell_to_update, new_value)
-
-    # Update success
-    print("\n")
-    print(Fore.YELLOW + " Updating data...")
-    time.sleep(2)
-    print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
-    time.sleep(2)
-    print("\n")
+def display_table(data, headers):
+    if not data:
+        print("No data available.")
+        return
+    data_list = [list(record.values()) for record in data]
+    print(tabulate(data_list, headers=headers, tablefmt='fancy_grid'))
+ 
 
 
 def view_sales(sheet_name): # Sales Function
