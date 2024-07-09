@@ -212,21 +212,21 @@ def view_sales(sheet_name): # Sales Function
     while True:
         sheet = SHEET.worksheet(sheet_name)
         sales_data = sheet.get_all_records()
+        headers = sheet.row_values(1)
+
         clearScreen()
         print("\n")
         typingPrint(f" Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
         print("\n")
         time.sleep(1)
-        # Convert data to list of lists for tabulate
-        data_list = [list(record.values()) for record in sales_data]
-        # Print data as a table
-        print(tabulate(data_list, headers=sales_data[0].keys(),
-              tablefmt='fancy_grid'))
-        print("\n")
+        
+        
+        #Print data as a table
+        display_table(sales_data, headers)
 
         update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
         if update_option.upper() == 'Y':
-            update_data(sheet, list(sales_data[0].keys()))
+            update_data(sheet, headers)
         
         return_option = input(Fore.GREEN + Style.BRIGHT +
                               " Return to Menu Y/N: " + Fore.WHITE +
