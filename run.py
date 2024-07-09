@@ -383,7 +383,14 @@ def view_materials(): # Materials Function
 
 def exit_program():
     clearScreen()
-    typingPrint(Fore.YELLOW + Style.BRIGHT + " Exiting the program, thank you for using Print Statement.")
+    print("\n")
+    typingPrint(" Exiting the program...", Fore.YELLOW + Style.BRIGHT)
+    time.sleep(2)
+    print("\n")
+    typingPrint(" Thank you for using ** Print Statement **")
+    time.sleep(3)
+    print("\n")
+    typingPrint(" Reloading welcome screen...", Fore.MAGENTA + Style.BRIGHT)
     time.sleep(3)
     clearScreen()
     welcome()
