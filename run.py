@@ -56,9 +56,8 @@ def typeInput(text):
 def welcome():
     """
     Display Print Statement Banner
-    """
+    """ 
     print(Fore.MAGENTA + Style.BRIGHT + '''
-       $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        +----------------------------------------------------------------+
        |  ######                                                        |
        |  #     # #####  # #    # #####                                 |
@@ -183,7 +182,8 @@ def update_data(sheet, headers):
         sheet.update_cells([cell_to_update])
         print("\n")
         time.sleep(1)
-        typingPrint(" Data updated successfully!/n", Fore.GREEN + Style.BRIGHT)
+        typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+        print("\n")
         time.sleep(1)
         typingPrint(" Reloading updated Market Sales...", Fore.YELLOW + Style.BRIGHT)
         time.sleep(3)
@@ -239,7 +239,7 @@ def view_sales(sheet_name): # Sales Function
 
         clearScreen()
         print("\n")
-        typingPrint(f" viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
+        typingPrint(f" Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
         print("\n")
         time.sleep(1)
         
