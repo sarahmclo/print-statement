@@ -5,7 +5,6 @@ import sys
 import os
 import time
 from tabulate import tabulate
-from termcolor import colored
 
 # Import colorama modules, adapted from tutorial:
 # https://linuxhint.com/colorama-python/
