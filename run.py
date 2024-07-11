@@ -148,49 +148,61 @@ def update_data(sheet, headers):
     if not data:
         print("No data available to update.")
         return
-
-    # Prompt user for print number and day to input data to specific cell
-    day = input(Fore.YELLOW + Style.BRIGHT + f" Enter day (Mon, Tues, Wed, Thurs, Fri): " + Fore.WHITE + Style.BRIGHT)
-    print_number = input(Fore.YELLOW + Style.BRIGHT + f" Enter print #: (1, 2, 3): " + Fore.WHITE + Style.BRIGHT)
     
+    while True:
+        # Prompt user for print number and day to input data to specific cell
+        day = input(Fore.YELLOW + Style.BRIGHT + f" Enter day (Mon, Tues, Wed, Thurs, Fri): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
+        if day not in ["Mon", "Tues", "Wed", "Thurs", "Fri"]:
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            continue
 
-    # Find column index for print and day
-    column_index = None
-    for i, header in enumerate(headers, start=1):
-        if header.startswith(f"print #{print_number}"):
-            column_index = i
+        print_number = input(Fore.YELLOW + Style.BRIGHT + f" Enter print #: (1, 2, 3): " + Fore.WHITE + Style.BRIGHT)
+        if print_number not in ["1", "2", "3"]:
+            print(Fore.RED + Style.BRIGHT + " Invalid input Please enter correctly.")
+            continue
+
+        # Find column index for print and day
+        column_index = None
+        for i, header in enumerate(headers, start=1):
+            if header.startswith(f"print #{print_number}"):
+                column_index = i
+                break
+        if column_index is None:
+            print(Fore.RED + Style.BRIGHT + f"Invalid input for #{print_number}.")
+            continue
+
+        row_index = None
+        for i, record in enumerate(data, start=1):
+            if record['Market Sales'] == day:
+                row_index = i + 1 # Do not allow for header update
+                break
+        if row_index is None:
+            print(Fore.RED + Style.BRIGHT + f"Invalid input for {day}.")
+            continue
+
+        # Input new value
+        new_value = input(Fore.MAGENTA + Style.BRIGHT + f" Update data by entering new value for '{headers[column_index-1]}' on '{day}': " + Fore.WHITE + Style.BRIGHT)
+        if not new_value.replace('.', '', 1).isdigit():
+            print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly.")
+            continue
+    
+        # Update cell
+        cell_to_update = sheet.cell(row_index, column_index)
+        try:
+            cell_to_update.value = float(new_value)
+            sheet.update_cells([cell_to_update])
+            print("\n")
+            time.sleep(1)
+            typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+            print("\n")
+            time.sleep(1)
+            typingPrint(" Reloading updated Market Sales...", Fore.YELLOW + Style.BRIGHT)
+            time.sleep(3)
+            # Reload Market Sales
+            view_sales('Market Sales')
             break
-    if column_index is None:
-        print(Fore.RED + Style.BRIGHT + f"No column found for print #{print_number}.")
-        return
-
-    row_index = None
-    for i, record in enumerate(data, start=1):
-        if record['Market Sales'] == day:
-            row_index = i + 1 # Do not allow for header update
-            break
-    if row_index is None:
-        print(Fore.RED + Style.BRIGHT + f"No row found for {day}.")
-        return
-
-    # Input new value
-    new_value = input(Fore.MAGENTA + Style.BRIGHT + f" Update data by entering new value for '{headers[column_index-1]}' on '{day}': " + Fore.WHITE + Style.BRIGHT)
-    # Update cell
-    cell_to_update = sheet.cell(row_index, column_index)
-    try:
-        cell_to_update.value = float(new_value)
-        sheet.update_cells([cell_to_update])
-        print("\n")
-        time.sleep(1)
-        typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
-        print("\n")
-        time.sleep(1)
-        typingPrint(" Reloading updated Market Sales...", Fore.YELLOW + Style.BRIGHT)
-        time.sleep(3)
-        # Reload Market Sales
-        view_sales('Market Sales')
-    except Exception as e:
-        print(f" Error updating data: {e}")
+        except Exception as e:
+            print(f" Error updating data: {e}")
 
 
 def get_valid_row_index(data):
@@ -243,40 +255,47 @@ def view_sales(sheet_name): # Sales Function
         print("\n")
         time.sleep(1)
         
-        
         #Print data as a table
         display_table(sales_data, headers)
         print("\n")
-
-        update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
-        if update_option.upper() == 'Y':
-            update_data(sheet, headers)
         
-        return_option = input(Fore.GREEN + Style.BRIGHT +
-                              " Return to Menu Y/N: " + Fore.WHITE +
-                              Style.BRIGHT).strip().upper()
-        if return_option == 'Y':
-            clearScreen()
-            options()
-            return
-        elif return_option == 'N':
-            exit_option = input(Fore.MAGENTA + Style.BRIGHT +
-                                " Exit Program Y/N: " + Fore.WHITE +
-                                Style.BRIGHT).strip().upper()
-            if exit_option == 'Y':
-                exit_program()
-                return
-            elif exit_option == 'N':
-                print("\n")
-                print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
-                time.sleep(2)
+        while True:
+            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
+            if update_option.upper() == 'Y':
+                update_data(sheet, headers)
+                break
+            elif update_option == 'N':
+                break
+            else:
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
+        
+        while True:
+            return_option = input(Fore.GREEN + Style.BRIGHT +
+                                  " Return to Menu Y/N: " + Fore.WHITE +
+                                  Style.BRIGHT).strip().upper()
+            if return_option == 'Y':
                 clearScreen()
                 options()
                 return
+            elif return_option == 'N':
+                while True:
+                    exit_option = input(Fore.MAGENTA + Style.BRIGHT +
+                                        " Exit Program Y/N: " + Fore.WHITE +
+                                        Style.BRIGHT).strip().upper()
+                    if exit_option == 'Y':
+                        exit_program()
+                        return
+                    elif exit_option == 'N':
+                        print("\n")
+                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                        time.sleep(2)
+                        clearScreen()
+                        options()
+                        return
+                    else:
+                        print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
             else:
-                print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
-        else:
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
 
 
 def view_stock(): # Stock Function
