@@ -5,6 +5,7 @@ import sys
 import os
 import time
 from tabulate import tabulate
+from termcolor import colored
 
 # Import colorama modules, adapted from tutorial:
 # https://linuxhint.com/colorama-python/
@@ -293,7 +294,7 @@ def view_sales(sheet_name): # Sales Function
                         options()
                         return
                     else:
-                        print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
             else:
                 print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
 
