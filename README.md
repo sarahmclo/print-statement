@@ -2,7 +2,7 @@
 
 ![Mock-Up](docs/ps-mockup.png)
 
-Welcome to Print Statement, a Python command line interface (CLI) application created for a small screen printing business that sells original print creations at a local market. This application allows users to monitor and update sales and inventory levels for print stock and materials. Fully customizable, Print Statement allows users to easily update their print stock and inventory items through intuitive menus and dynamic feedback. Print statement is an efficient interface for artists and can be adapted to meet the unique needs of similar ventures. 
+Welcome to Print Statement, a Python command line interface (CLI) application created for a small screen printing business that sells original print creations at a local market. Fully customizable, Print Statement allows users to easily update their print stock and inventory items through intuitive menus and dynamic feedback. Print statement is an efficient interface for artists and can be adapted to meet the unique needs of similar ventures. 
 
 Run the Print Statement program [here](https://print-statement-32b6316d2a47.herokuapp.com/)
 
