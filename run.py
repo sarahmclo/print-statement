@@ -194,7 +194,8 @@ def view_sales(sheet_name):  # Sales Function
                 break
             else:
                 print(
-                    Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'."
+                    Fore.RED + Style.BRIGHT +
+                    " Invalid input. Please enter 'Y' or 'N'."
                 )
 
         while True:
@@ -231,7 +232,8 @@ def view_sales(sheet_name):  # Sales Function
                         return
                     elif exit_option == "N":
                         print("\n")
-                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                        print(Fore.YELLOW + Style.BRIGHT +
+                              " Returning to main menu...")
                         time.sleep(2)
                         clearScreen()
                         options()
@@ -244,7 +246,8 @@ def view_sales(sheet_name):  # Sales Function
                         )
             else:
                 print(
-                    Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly"
+                    Fore.RED + Style.BRIGHT +
+                    " Invalid input. Please enter correctly"
                 )
 
 
@@ -273,7 +276,8 @@ def update_data(sheet, headers):
             .capitalize()
         )
         if day not in ["Mon", "Tues", "Wed", "Thurs", "Fri"]:
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input. Please enter correctly.")
             continue
 
         print_number = input(
@@ -284,7 +288,8 @@ def update_data(sheet, headers):
             + Style.BRIGHT
         )
         if print_number not in ["1", "2", "3"]:
-            print(Fore.RED + Style.BRIGHT + " Invalid input Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input Please enter correctly.")
             continue
 
         # Find column index for print and day
@@ -294,7 +299,8 @@ def update_data(sheet, headers):
                 column_index = i
                 break
         if column_index is None:
-            print(Fore.RED + Style.BRIGHT + f"Invalid input for #{print_number}.")
+            print(Fore.RED + Style.BRIGHT +
+                  f"Invalid input for #{print_number}.")
             continue
 
         row_index = None
@@ -310,12 +316,14 @@ def update_data(sheet, headers):
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for '{headers[column_index-1]}' on '{day}': "
+            + f" Update data by entering new value for"
+            " '{headers[column_index-1]}' on '{day}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
         if not new_value.replace(".", "", 1).isdigit():
-            print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  "Invalid input. Please enter correctly.")
             continue
 
         # Update cell
@@ -325,11 +333,13 @@ def update_data(sheet, headers):
             sheet.update_cells([cell_to_update])
             print("\n")
             time.sleep(1)
-            typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+            typingPrint(" Data updated successfully!\n",
+                        Fore.GREEN + Style.BRIGHT)
             print("\n")
             time.sleep(1)
             typingPrint(
-                " Reloading updated Market Sales...\n", Fore.YELLOW + Style.BRIGHT
+                " Reloading updated Market Sales...\n",
+                Fore.YELLOW + Style.BRIGHT
             )
             time.sleep(3)
             # Reload Market Sales
@@ -354,11 +364,13 @@ def get_valid_row_index(data):
                 print(
                     Fore.RED
                     + Style.BRIGHT
-                    + f" Invalid row. Please enter a number between 2 and {len(data)+1}."
+                    + f" Invalid row. Please enter a"
+                    " number between 2 and {len(data)+1}."
                 )
         except ValueError:
             print(
-                Fore.RED + Style.BRIGHT + " Invalid input. Please enter a valid number."
+                Fore.RED + Style.BRIGHT +
+                " Invalid input. Please enter a valid number."
             )
 
 
@@ -373,7 +385,8 @@ def get_valid_column_index(headers):
                 input(
                     Fore.YELLOW
                     + Style.BRIGHT
-                    + f" Enter column you want to update (1 to {len(headers)}): "
+                    + f" Enter column you want"
+                    " to update (1 to {len(headers)}): "
                 )
             )
             if 1 <= column_index <= len(headers):
@@ -382,11 +395,13 @@ def get_valid_column_index(headers):
                 print(
                     Fore.RED
                     + Style.BRIGHT
-                    + f" Invalid column. Please enter a number between 1 and {len(headers)}."
+                    + f" Invalid column. Please enter"
+                    " a number between 1 and {len(headers)}."
                 )
         except ValueError:
             print(
-                Fore.RED + Style.BRIGHT + " Invalid input. Please enter a valid number."
+                Fore.RED + Style.BRIGHT +
+                " Invalid input. Please enter a valid number."
             )
 
 
@@ -433,7 +448,8 @@ def view_stock():  # Stock Function
                 break
             elif update_option == "N":
                 break
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input. Please enter 'Y' or 'N'.")
 
         while True:
             return_option = (
@@ -469,7 +485,8 @@ def view_stock():  # Stock Function
                         return
                     elif exit_option == "N":
                         print("\n")
-                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                        print(Fore.YELLOW + Style.BRIGHT +
+                              " Returning to main menu...")
                         time.sleep(2)
                         clearScreen()
                         options()
@@ -482,7 +499,8 @@ def view_stock():  # Stock Function
                         )
             else:
                 print(
-                    Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly"
+                    Fore.RED + Style.BRIGHT +
+                    " Invalid input. Please enter correctly"
                 )
 
 
@@ -511,7 +529,8 @@ def update_stock_data(sheet, headers):
             .capitalize()
         )
         if stock_type not in ["Current", "Production", "Forecast"]:
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input. Please enter correctly.")
             continue
 
         print_number = input(
@@ -522,7 +541,8 @@ def update_stock_data(sheet, headers):
             + Style.BRIGHT
         )
         if print_number not in ["1", "2", "3"]:
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input. Please enter correctly.")
             continue
 
         # Find column index for stock type and print number
@@ -532,7 +552,8 @@ def update_stock_data(sheet, headers):
                 column_index = i
                 break
         if column_index is None:
-            print(Fore.RED + Style.BRIGHT + f"Invalid input for #{print_number}.")
+            print(Fore.RED + Style.BRIGHT
+                  + f"Invalid input for #{print_number}.")
             continue
 
         row_index = None
@@ -548,12 +569,14 @@ def update_stock_data(sheet, headers):
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for '{headers[column_index-1]}' on '{stock_type}': "
+            + f" Update data by entering new value for"
+            " '{headers[column_index-1]}' on '{stock_type}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
         if not new_value.replace(".", "", 1).isdigit():
-            print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  "Invalid input. Please enter correctly.")
             continue
 
         # Update indices
@@ -561,11 +584,13 @@ def update_stock_data(sheet, headers):
             sheet.update_cell(row_index, column_index, new_value)
             print("\n")
             time.sleep(1)
-            typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+            typingPrint(" Data updated successfully!\n",
+                        Fore.GREEN + Style.BRIGHT)
             print("\n")
             time.sleep(1)
             typingPrint(
-                " Reloading updated Print Stock...\n", Fore.YELLOW + Style.BRIGHT
+                " Reloading updated Print Stock...\n",
+                Fore.YELLOW + Style.BRIGHT
             )
             time.sleep(3)
             # Reload Print Stock
@@ -610,7 +635,8 @@ def view_materials():  # Materials Function
                 break
             elif update_option == "N":
                 break
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input. Please enter 'Y' or 'N'.")
 
         while True:
             return_option = (
@@ -646,7 +672,8 @@ def view_materials():  # Materials Function
                         return
                     elif exit_option == "N":
                         print("\n")
-                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                        print(Fore.YELLOW + Style.BRIGHT +
+                              " Returning to main menu...")
                         time.sleep(2)
                         clearScreen()
                         options()
@@ -659,7 +686,8 @@ def view_materials():  # Materials Function
                         )
             else:
                 print(
-                    Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly."
+                    Fore.RED + Style.BRIGHT +
+                    " Invalid input. Please enter correctly."
                 )
 
 
@@ -680,7 +708,8 @@ def update_materials_data(sheet, headers):
             input(
                 Fore.YELLOW
                 + Style.BRIGHT
-                + f" Enter material type (Screen, Squeegee, Stencil, Plastic, Ink, Paper ): "
+                + f" Enter material type"
+                "(Screen, Squeegee, Stencil, Plastic, Ink, Paper ): "
                 + Fore.WHITE
                 + Style.BRIGHT
             )
@@ -695,7 +724,8 @@ def update_materials_data(sheet, headers):
             "Ink",
             "Paper",
         ]:
-            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  " Invalid input. Please enter correctly.")
             continue
 
         # Find index for materials type and quantity
@@ -705,19 +735,22 @@ def update_materials_data(sheet, headers):
                 row_index = i + 1  # Do not allow for header update
                 break
         if row_index is None:
-            print(Fore.RED + Style.BRIGHT + f"Invalid input for {materials_type}.")
+            print(Fore.RED + Style.BRIGHT
+                  + f"Invalid input for {materials_type}.")
             continue
 
         # Input new value
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for 'Quantity' on '{materials_type}': "
+            + f" Update data by entering new value"
+            " for 'Quantity' on '{materials_type}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
         if not new_value.replace(".", "", 1).isdigit():
-            print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly.")
+            print(Fore.RED + Style.BRIGHT +
+                  "Invalid input. Please enter correctly.")
             continue
 
         # Quantity coumn index
@@ -726,11 +759,13 @@ def update_materials_data(sheet, headers):
             sheet.update_cell(row_index, column_index, new_value)
             print("\n")
             time.sleep(1)
-            typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+            typingPrint(" Data updated successfully!\n",
+                        Fore.GREEN + Style.BRIGHT)
             print("\n")
             time.sleep(1)
             typingPrint(
-                " Reloading updated Materials Stock...\n", Fore.YELLOW + Style.BRIGHT
+                " Reloading updated Materials Stock...\n",
+                Fore.YELLOW + Style.BRIGHT
             )
             time.sleep(3)
             # Reload Materials Stock
