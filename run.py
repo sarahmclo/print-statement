@@ -138,6 +138,64 @@ def options():
         exit_program()
 
 
+def view_sales(sheet_name): # Sales Function
+    """
+    View sales data from specified sheet
+    """
+    while True:
+        sheet = SHEET.worksheet(sheet_name)
+        sales_data = sheet.get_all_records()
+        headers = sheet.row_values(1)
+
+        clearScreen()
+        print("\n")
+        typingPrint(f" Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
+        print("\n")
+        time.sleep(1)
+        
+        #Print data as a table
+        display_table(sales_data, headers)
+        print("\n")
+        
+        while True:
+            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
+            if update_option.upper() == 'Y':
+                update_data(sheet, headers)
+                break
+            elif update_option == 'N':
+                break
+            else:
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
+        
+        while True:
+            return_option = input(Fore.GREEN + Style.BRIGHT +
+                                  " Return to Menu Y/N: " + Fore.WHITE +
+                                  Style.BRIGHT).strip().upper()
+            if return_option == 'Y':
+                clearScreen()
+                options()
+                return
+            elif return_option == 'N':
+                while True:
+                    exit_option = input(Fore.MAGENTA + Style.BRIGHT +
+                                        " Exit Program Y/N: " + Fore.WHITE +
+                                        Style.BRIGHT).strip().upper()
+                    if exit_option == 'Y':
+                        exit_program()
+                        return
+                    elif exit_option == 'N':
+                        print("\n")
+                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                        time.sleep(2)
+                        clearScreen()
+                        options()
+                        return
+                    else:
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
+            else:
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
+                
+
 def update_data(sheet, headers):
     """
     Function to allow for user to update data in sheets.
@@ -238,64 +296,6 @@ def display_table(data, headers):
         return
     data_list = [list(record.values()) for record in data]
     print(tabulate(data_list, headers=headers, tablefmt='fancy_grid'))
- 
-
-def view_sales(sheet_name): # Sales Function
-    """
-    View sales data from specified sheet
-    """
-    while True:
-        sheet = SHEET.worksheet(sheet_name)
-        sales_data = sheet.get_all_records()
-        headers = sheet.row_values(1)
-
-        clearScreen()
-        print("\n")
-        typingPrint(f" Viewing {sheet_name}...\n", Fore.YELLOW + Style.BRIGHT)
-        print("\n")
-        time.sleep(1)
-        
-        #Print data as a table
-        display_table(sales_data, headers)
-        print("\n")
-        
-        while True:
-            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
-            if update_option.upper() == 'Y':
-                update_data(sheet, headers)
-                break
-            elif update_option == 'N':
-                break
-            else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
-        
-        while True:
-            return_option = input(Fore.GREEN + Style.BRIGHT +
-                                  " Return to Menu Y/N: " + Fore.WHITE +
-                                  Style.BRIGHT).strip().upper()
-            if return_option == 'Y':
-                clearScreen()
-                options()
-                return
-            elif return_option == 'N':
-                while True:
-                    exit_option = input(Fore.MAGENTA + Style.BRIGHT +
-                                        " Exit Program Y/N: " + Fore.WHITE +
-                                        Style.BRIGHT).strip().upper()
-                    if exit_option == 'Y':
-                        exit_program()
-                        return
-                    elif exit_option == 'N':
-                        print("\n")
-                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
-                        time.sleep(2)
-                        clearScreen()
-                        options()
-                        return
-                    else:
-                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
-            else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
 
 
 def view_stock(): # Stock Function
@@ -303,13 +303,13 @@ def view_stock(): # Stock Function
     View stock data
     """
     while True:
-        sheet = SHEET.worksheet('sheet_name')
+        sheet = SHEET.worksheet('Print Stock')
         stock_data = sheet.get_all_records()
-        headers = sheet.rows_values(1)
+        headers = sheet.row_values(1)
 
         clearScreen()
         print("\n")
-        typingPrint(f" Viewing {sheet_name}...\n", Fore.CYAN + Style.BRIGHT)
+        typingPrint(" Viewing Print Stock...\n", Fore.CYAN + Style.BRIGHT)
         print("\n")
         time.sleep(1)
 
@@ -320,7 +320,7 @@ def view_stock(): # Stock Function
             update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N: "
                                   + Fore.WHITE + Style.BRIGHT).strip().upper()
             if update_option.upper() == 'Y':
-                update_data(sheet, headers)
+                update_stock_data(sheet, headers)
                 break
             elif update_option == 'N':
                 break
@@ -354,7 +354,70 @@ def view_stock(): # Stock Function
             else:
                 print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
 
-            
+
+def update_stock_data(sheet, headers):
+    """
+    Function to allow for user to update data in sheets.
+    """
+    # Display current data
+    print("\n")
+    data = sheet.get_all_records()
+    if not data:
+        print(" No data available to update.")
+        return
+    
+    while True:
+        # Prompt user for print number and day to input data to specific cell
+        stock_type = input(Fore.YELLOW + Style.BRIGHT + f" Enter day (Current, Production, Forecast): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
+        if stock_type not in ["Current", "Production", "Forecast"]:
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            continue
+
+        print_number = input(Fore.YELLOW + Style.BRIGHT + f" Enter print #: (1, 2, 3): " + Fore.WHITE + Style.BRIGHT)
+        if print_number not in ["1", "2", "3"]:
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            continue
+
+        # Find column index for stock type and print number
+        column_index = None
+        for i, header in enumerate(headers, start=1):
+            if header.startswith(f"print #{print_number}"):
+                column_index = i
+                break
+        if column_index is None:
+            print(Fore.RED + Style.BRIGHT + f"Invalid input for #{print_number}.")
+            continue
+
+        row_index = None
+        for i, record in enumerate(data, start=1):
+            if record['Stock'] == stock_type:
+                row_index = i + 1 # Do not allow for header update
+                break
+        if row_index is None:
+            print(Fore.RED + Style.BRIGHT + f"Invalid input for {stock_type}.")
+            continue
+
+        # Input new value
+        new_value = input(Fore.MAGENTA + Style.BRIGHT + f" Update data by entering new value for '{headers[column_index-1]}' on '{stock_type}': " + Fore.WHITE + Style.BRIGHT)
+        if not new_value.replace('.', '', 1).isdigit():
+            print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly.")
+            continue
+    
+        # Update cell
+        try:
+            sheet.update_cell(row_index, column_index, new_value)
+            print("\n")
+            time.sleep(1)
+            typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+            print("\n")
+            time.sleep(1)
+            typingPrint(" Reloading updated Print Stock...\n", Fore.YELLOW + Style.BRIGHT)
+            time.sleep(3)
+            # Reload Print Stock
+            view_stock()
+            break
+        except Exception as e:
+            print(f" Error updating data: {e}")          
 
 
 def view_materials(): # Materials Function
@@ -362,9 +425,15 @@ def view_materials(): # Materials Function
     View materials data
     """
     while True:
-        sheet = SHEET.worksheet(sheet_name)
+        sheet = SHEET.worksheet('Materials')
         materials_data = sheet.get_all_records()
         headers = sheet.row_values(1)
+
+        clearScreen()
+        print("\n")
+        typingPrint(" Viewing Materials...\n", Fore.MAGENTA + Style.BRIGHT)
+        print("\n")
+        time.sleep(1)
 
         display_table(materials_data, headers)
         print("\n")
