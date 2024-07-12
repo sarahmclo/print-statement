@@ -368,7 +368,7 @@ def update_stock_data(sheet, headers):
     
     while True:
         # Prompt user for print number and day to input data to specific cell
-        stock_type = input(Fore.YELLOW + Style.BRIGHT + f" Enter day (Current, Production, Forecast): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
+        stock_type = input(Fore.YELLOW + Style.BRIGHT + f" Enter stock (Current, Production, Forecast): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
         if stock_type not in ["Current", "Production", "Forecast"]:
             print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
             continue
@@ -426,7 +426,7 @@ def view_materials(): # Materials Function
     """
     while True:
         sheet = SHEET.worksheet('Materials')
-        materials_data = sheet.get_all_records()
+        stock_data = sheet.get_all_records()
         headers = sheet.row_values(1)
 
         clearScreen()
@@ -435,18 +435,18 @@ def view_materials(): # Materials Function
         print("\n")
         time.sleep(1)
 
-        display_table(materials_data, headers)
+        display_table(stock_data, headers)
         print("\n")
-        
+    
         while True:
-            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
+            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y/N: "
+                                  + Fore.WHITE + Style.BRIGHT).strip().upper()
             if update_option.upper() == 'Y':
-                update_data(sheet, headers)
+                update_materials_data(sheet, headers)
                 break
             elif update_option == 'N':
                 break
-            else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
         
         while True:
             return_option = input(Fore.GREEN + Style.BRIGHT +
@@ -476,6 +476,24 @@ def view_materials(): # Materials Function
             else:
                 print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
 
+
+def update_materials_data(sheet, headers):
+    """
+    Function to allow for user to update data in sheets.
+    """
+    # Display current data
+    print("\n")
+    data = sheet.get_all_records()
+    if not data:
+        print(" No data available to update.")
+        return
+    
+    while True:
+        # Prompt user for material type to update
+        material_type = input(Fore.YELLOW + Style.BRIGHT + f" Enter material type (Screen, Squeegee, Stencil, Plastic, Ink, Paper): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
+        if material_type not in headers:
+            print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
+            continue
 
 
 def exit_program():
