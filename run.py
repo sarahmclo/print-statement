@@ -362,58 +362,51 @@ def view_materials(): # Materials Function
     View materials data
     """
     while True:
-        sheet = SHEET.worksheet('Materials')
+        sheet = SHEET.worksheet(sheet_name)
         materials_data = sheet.get_all_records()
-        clearScreen()
-        print("\n")
-        typingPrint(f" Viewing Materials...\n", Fore.MAGENTA + Style.BRIGHT)
-        print("\n")
-        time.sleep(1)
-        data_list = [list(record.values()) for record in materials_data]
-        print(tabulate(data_list, headers=materials_data[0].keys(),
-              tablefmt='fancy_grid'))
-        print("\n")
+        headers = sheet.row_values(1)
 
-        update_option = input(Fore.GREEN + Style.BRIGHT +
-                              " Update Data Y/N:" + Fore.WHITE +
-                              Style.BRIGHT + " ")
-
-        if update_option.upper() == 'Y':
-            # LOGIC - UPDATE LATER
-            print("\n")
-            print(Fore.YELLOW + Style.BRIGHT + " Updating data...")
-            time.sleep(2)
-            print(Fore.GREEN + Style.BRIGHT + " Data updated successfully.")
-            time.sleep(2)
-            print("\n")
+        display_table(materials_data, headers)
+        print("\n")
+        
+        while True:
+            update_option = input(Fore.GREEN + Style.BRIGHT + " Update Data Y or N: " + Fore.WHITE + Style.BRIGHT).strip().upper()
+            if update_option.upper() == 'Y':
+                update_data(sheet, headers)
+                break
+            elif update_option == 'N':
+                break
+            else:
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter 'Y' or 'N'.")
         
         while True:
             return_option = input(Fore.GREEN + Style.BRIGHT +
-                                  " Return to Menu Y or N: " + Fore.WHITE +
-                              Style.BRIGHT).strip().upper()
+                                  " Return to Menu Y/N: " + Fore.WHITE +
+                                  Style.BRIGHT).strip().upper()
             if return_option == 'Y':
                 clearScreen()
                 options()
                 return
             elif return_option == 'N':
-                exit_option = input(Fore.MAGENTA + Style.BRIGHT +
-                                    " Exit Program Y or N: " + Fore.WHITE +
-                              Style.BRIGHT).strip().upper()
-                if exit_option == 'Y':
-                    exit_program()
-                    return
-                elif exit_option == 'N':
-                    print("\n")
-                    print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
-                    time.sleep(2)
-                    clearScreen()
-                    options()
-                    return
-                else:
-                    print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly")
+                while True:
+                    exit_option = input(Fore.MAGENTA + Style.BRIGHT +
+                                        " Exit Program Y/N: " + Fore.WHITE +
+                                        Style.BRIGHT).strip().upper()
+                    if exit_option == 'Y':
+                        exit_program()
+                        return
+                    elif exit_option == 'N':
+                        print("\n")
+                        print(Fore.YELLOW + Style.BRIGHT + " Returning to main menu...")
+                        time.sleep(2)
+                        clearScreen()
+                        options()
+                        return
+                    else:
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
             else:
                 print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
-        break
+
 
 
 def exit_program():
