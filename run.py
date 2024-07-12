@@ -426,7 +426,7 @@ def view_materials(): # Materials Function
     """
     while True:
         sheet = SHEET.worksheet('Materials')
-        stock_data = sheet.get_all_records()
+        materials_data = sheet.get_all_records()
         headers = sheet.row_values(1)
 
         clearScreen()
@@ -435,7 +435,7 @@ def view_materials(): # Materials Function
         print("\n")
         time.sleep(1)
 
-        display_table(stock_data, headers)
+        display_table(materials_data, headers)
         print("\n")
     
         while True:
@@ -472,14 +472,14 @@ def view_materials(): # Materials Function
                         options()
                         return
                     else:
-                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
+                        print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
             else:
-                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly")
+                print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
 
 
 def update_materials_data(sheet, headers):
     """
-    Function to allow for user to update data in sheets.
+    Function to allow for user to update data in materials sheet.
     """
     # Display current data
     print("\n")
@@ -489,11 +489,44 @@ def update_materials_data(sheet, headers):
         return
     
     while True:
-        # Prompt user for material type to update
-        material_type = input(Fore.YELLOW + Style.BRIGHT + f" Enter material type (Screen, Squeegee, Stencil, Plastic, Ink, Paper): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
-        if material_type not in headers:
+        # Prompt user for materials and quantity to input data to specific cell
+        materials_type = input(Fore.YELLOW + Style.BRIGHT + f" Enter material type (Screen, Squeegee, Stencil, Plastic, Ink, Paper ): " + Fore.WHITE + Style.BRIGHT).strip().capitalize()
+        if materials_type not in ["Screen", "Squeegee", "Stencil", "Plastic", "Ink", "Paper"]:
             print(Fore.RED + Style.BRIGHT + " Invalid input. Please enter correctly.")
             continue
+
+        # Find index for materials type and quantity
+        row_index = None
+        for i, record in enumerate(data, start=1):
+            if record['Materials'] == materials_type:
+                row_index = i + 1 # Do not allow for header update
+                break
+        if row_index is None:
+            print(Fore.RED + Style.BRIGHT + f"Invalid input for {materials_type}.")
+            continue
+
+        # Input new value
+        new_value = input(Fore.MAGENTA + Style.BRIGHT + f" Update data by entering new value for 'Quantity' on '{materials_type}': " + Fore.WHITE + Style.BRIGHT)
+        if not new_value.replace('.', '', 1).isdigit():
+            print(Fore.RED + Style.BRIGHT + "Invalid input. Please enter correctly.")
+            continue
+    
+        # Quantity coumn index
+        column_index = 2 
+        try:
+            sheet.update_cell(row_index, column_index, new_value)
+            print("\n")
+            time.sleep(1)
+            typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
+            print("\n")
+            time.sleep(1)
+            typingPrint(" Reloading updated Materials Stock...\n", Fore.YELLOW + Style.BRIGHT)
+            time.sleep(3)
+            # Reload Materials Stock
+            view_materials()
+            break
+        except Exception as e:
+            print(f" Error updating data: {e}")
 
 
 def exit_program():
