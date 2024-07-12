@@ -222,15 +222,16 @@ Git was used for version control. Version control was done locally and remotely.
 
 ### Validation Testing <a name="validation-testing"></a>
 
-Code Validation
-The code was validated using Pep8 Linter. No errors remain in final testing.
+Pep8 Linter Validation. No errors remain in final testing.
 
-Pep8 Linter Validation
+![markup-validation-index](docs/val-python-linter.png)
 
 ### Accessibility <a name="accessibility"></a>
 
-Lighhouse
+Lighhouse Testing
 
+![lighthouse-testing](docs/val-lighthouse.png)
+ 
 ### Manual Testing <a name="manual-testing"></a>
 
 Manual testing for the site involves hands-on evaluation by human testers to ensure functionality, usability, and compatibility across various devices and browsers. By conducting the manual testing procedures below, we ensure the website functions smoothly, provides an optimal user experience, and meets desired standards.
