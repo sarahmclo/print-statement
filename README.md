@@ -1,8 +1,8 @@
 # Print Statement
 
-![Mock-Up](docs/ps-mockup.webp)
+![Mock-Up](docs/ps-mockup.png)
 
-Welcome to Print Statement, a Python command line interface (CLI) application created for a small screen printing business that sells original print creations at a local market. This application allows users to manage production sales, track orders and monitor inventory levels for products and materials. Fully customizable, Print Statement allows users to easily update their print stock and inventory items through intuitive menus and dynamic feedback. Print statement is  an efficient interface for artists and can be adapted to meet the unique needs of similar ventures. 
+Welcome to Print Statement, a Python command line interface (CLI) application created for a small screen printing business that sells original print creations at a local market. This application allows users to monitor and update sales and inventory levels for print stock and materials. Fully customizable, Print Statement allows users to easily update their print stock and inventory items through intuitive menus and dynamic feedback. Print statement is an efficient interface for artists and can be adapted to meet the unique needs of similar ventures. 
 
 Run the Print Statement program [here](https://print-statement-32b6316d2a47.herokuapp.com/)
 
@@ -52,7 +52,7 @@ Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2
 
 ## User Experience (UX)<a name="user-experience"></a>
 
-Print Statement is designed with ease of use in mind, ensuring that small screen printing businesses can efficiently manage their operations with minimal effort. Here are some key aspects of the user experience:
+Print Statement is designed with ease of use in mind, ensuring that artists can efficiently manage their operations with minimal effort. Here are some key aspects of the user experience:
 
 **Intuitive Interface**:
    - The command line interface (CLI) is straightforward and user-friendly, allowing users to navigate through the application with simple commands.
@@ -60,7 +60,7 @@ Print Statement is designed with ease of use in mind, ensuring that small screen
 
 **Comprehensive Management**:
    - Users can easily track daily print runs and sales, ensuring accurate records of their business activities.
-   - Order numbers are used to organize and retrieve information about specific jobs, providing clarity and organization.
+   - Tables are used to organize and retrieve information about specific jobs, providing clarity and organization.
 
 **Inventory Tracking**:
    - The application keeps detailed records of inventory levels, showing what screen print stock is available and what has been sold.
@@ -71,7 +71,7 @@ Print Statement is designed with ease of use in mind, ensuring that small screen
    - This feature helps users make informed decisions about what to print and bring to upcoming markets.
 
 **Customization**:
-   - The application is fully customizable, allowing users to adjust print designs and inventory items as needed.
+   - The application is fully customizable, allowing users to adjust print stock and inventory items as needed, it can also be adapted to suit other artist's businesses.
    - Multiple menus provide options for editing and updating various aspects of the business, ensuring the application remains relevant and useful as the business evolves.
 
 **Efficiency**:
@@ -87,11 +87,11 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 - Ensure the application is fully customizable to adapt to the evolving needs of each business.
 
 ## User Stories
-- As a small business owner, I want to easily record and track daily print runs and sales, so I can maintain accurate business records.
+- As a small business owner, I want to easily record and track daily print runs and sales so that I can maintain accurate business records.
 - As an inventory manager, I want to monitor material usage and stock levels, so I can ensure we never run out of necessary supplies.
 - As a market seller, I want to predict what products will be needed for future markets based on past sales, so I can optimize my stock and increase sales.
 - As a new user, I want clear instructions and prompts, so I can quickly learn how to use the application without extensive training.
-- As a frequent user, I want customizable options, so I can update my print designs and inventory items as my business changes.
+- As a frequent user, I want customizable options, so I can update my print stock and inventory items as my business changes.
 
 ## Target Audience Goals
 - Efficiently manage daily operations and inventory for their screen printing business.
@@ -122,6 +122,8 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 ### Process
 
 ### Flow Chart
+
+[**Lucid Chart**](https://www.lucidchart.com/pages) was utilised to create the flowchart during project planning.
 
 ### Data Model - Connecting Google Sheets
 - This project required the use of Google Drive API and Google Sheets API, both enabled via Google Cloud Platform.
@@ -235,8 +237,8 @@ Manual testing for the site involves hands-on evaluation by human testers to ens
 
 | Testing | Description | Browser | Device | Fixed |
 |-------------|-----------------------|---------|--------|----------|
-| **Navigation Testing:** | Test here | Chrome, Safari, Firefox | Desktop, Laptop, Tablet, Mobile | Yes |
-| **Performance Testing:** | Test here | Chrome, Safari, Firefox | Desktop, Laptop, Tablet, Mobile | Yes |
+| **Navigation Testing:** | bugs | Chrome, Safari, Firefox | Desktop, Laptop | Yes |
+| **Performance Testing:** | bugs | Chrome, Safari, Firefox | Desktop, Laptop | Yes |
 
 ## Bugs and Fixes <a name="bugs-and-fixes"></a>
 
@@ -245,7 +247,7 @@ Throughout the development process, we encountered and resolved various bugs to 
 ### Python Testing Bugs ###
 |Bug / Errors | Where / Location site | Browser | Device | Fixed | Solution |
 |-------------|-----------------------|---------|--------|:-----:|----------|
-| lorem | main.py | Chrome, Safari, Firefox | Desktop, Laptop, Tablet, Mobile | Yes  | Solution |
+| bugs | main.py | Chrome, Safari, Firefox | Desktop, Laptop, Tablet, Mobile | Yes  | Solution |
 
 ## Finished Product <a name="finished-product"></a>
 Print Statement
@@ -284,8 +286,10 @@ Print Statement
 Print Statement is a powerful yet user-friendly CLI application designed to support small screen printing businesses in managing their daily operations efficiently. By providing tools for tracking print runs, sales, inventory levels, and material usage, the application ensures that business owners can maintain accurate records and make informed decisions.
 
 ## Acknowledgements <a name="acknowledgements"></a>
-- Rahul Lakahanpal, my mentor.
 - Amy Richardson, my course facillitator.
+- Rahul Lakahanpal, my mentor.
+- [Bakestock](https://github.com/amylour/BakeStock) by amylour for inspiration.
+- [Budget Buddy](https://github.com/Sarah-Bue/budget-buddy) by Sarah-Bue for helpful Readme.
 - Ozzy the dog, great on breaks.
 
 [🔼 Back to top](#Print-Statement)

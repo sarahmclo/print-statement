@@ -87,7 +87,7 @@ def welcome():
                 "for Sarah's Screen Prints Inc.", Fore.WHITE + Style.BRIGHT)
     print("\n")
     time.sleep(1)
-    typingPrint("     loading...", Fore.MAGENTA + Style.BRIGHT)
+    typingPrint("     loading...\n", Fore.MAGENTA + Style.BRIGHT)
     time.sleep(3)
     clearScreen()
 
@@ -196,7 +196,7 @@ def update_data(sheet, headers):
             typingPrint(" Data updated successfully!\n", Fore.GREEN + Style.BRIGHT)
             print("\n")
             time.sleep(1)
-            typingPrint(" Reloading updated Market Sales...", Fore.YELLOW + Style.BRIGHT)
+            typingPrint(" Reloading updated Market Sales...\n", Fore.YELLOW + Style.BRIGHT)
             time.sleep(3)
             # Reload Market Sales
             view_sales('Market Sales')
