@@ -180,6 +180,53 @@ Information is presented in a clear and organized manner, with important details
 
 ## Features
 
+## Features
+
+### User-friendly Command Line Interface (CLI)
+- **Interactive CLI**: Provides an easy-to-use interface for interacting with the application.
+- **Guided Navigation**: Clear and concise menu options guide users through different functionalities of the application.
+
+### Google Sheets Integration
+- **Data Storage**: Utilizes Google Sheets for storing and managing business data.
+- **Real-time Sync**: Ensures that any updates made via the application are immediately reflected in the Google Sheets.
+
+### Comprehensive Sales Management
+- **Market Sales Tracking**: Allows users to view and update daily sales data.
+- **Sales Analysis**: Provides insights into sales trends to help make informed business decisions.
+
+### Inventory Management
+- **Print Stock Management**: Enables tracking of current, production, and forecasted stock levels.
+- **Material Tracking**: Keeps a record of materials used in the screen printing process, ensuring that inventory levels are always up-to-date.
+
+### Data Update Capabilities
+- **Flexible Updates**: Users can update sales, stock, and material data directly from the CLI.
+- **Error Handling**: Input validation and error messages ensure that the data entered is accurate and correctly formatted.
+
+### Customization and Scalability
+- **Customizable Parameters**: Users can define various parameters to tailor the application to their specific business needs.
+- **Scalable Structure**: Designed to accommodate growth, allowing for the addition of new data points and increased complexity over time.
+
+### User Feedback and Assistance
+- **Typing Effect for Output**: Enhances the user experience by displaying messages in a typing animation.
+- **Color-coded Messages**: Uses colorama to provide color-coded messages, making it easier for users to distinguish between different types of information and alerts.
+
+### Clear and Informative Display
+- **Tabulated Data Display**: Presents data in a clear, tabulated format using the `tabulate` module, making it easy to read and understand.
+
+### Efficient Navigation and Program Flow
+- **Main Menu Access**: Allows users to return to the main menu or exit the program at any time.
+- **Loading Screens**: Informative loading messages enhance the user experience and provide feedback on the application's status.
+
+### Robust Error Handling
+- **Input Validation**: Ensures that users provide valid inputs, reducing the risk of errors and data corruption.
+- **Error Messages**: Clear and helpful error messages guide users in case of incorrect inputs or issues.
+
+### Welcome and Exit Messages
+- **Welcome Screen**: A visually appealing welcome screen that introduces users to the application.
+- **Exit Messages**: Informative exit messages ensure a smooth and user-friendly exit process.
+
+### Developer Convenience
+- **Clear Code Structure**: Well-organized code with comments and functions for different tasks, making it easy to maintain and extend.
 
 
 ## Technologies Utilised <a name="technologies-utilised"></a>
