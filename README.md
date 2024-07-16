@@ -153,7 +153,6 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 | **Customization and Flexibility** | - **User-defined Parameters**: Users can customize various aspects of the application to fit their specific business needs, such as adding new print designs or adjusting stock levels.<br>- **Scalability**: The structure of the application allows for easy scaling as the business grows, with the ability to add more data points and complexity over time. |
 | **Error Handling and Validation** | - **Input Validation**: Ensures that the data entered by users is accurate and in the correct format.<br>- **Error Messages**: Provides clear and helpful error messages to guide users in case of incorrect inputs or other issues. |
 
-
 ## Design <a name="design"></a>
 
 ### Design Philosophy
@@ -177,8 +176,6 @@ Information is presented in a clear and organized manner, with important details
 - **Minimalist Layout**: Ensures the focus remains on the necessary information.
 - **Responsive Design**: Provides a seamless experience across all devices.
 - **Interactive Elements**: Engages users through dynamic feedback.
-
-## Features
 
 ## Features
 
@@ -227,7 +224,6 @@ Information is presented in a clear and organized manner, with important details
 
 ### Developer Convenience
 - **Clear Code Structure**: Well-organized code with comments and functions for different tasks, making it easy to maintain and extend.
-
 
 ## Technologies Utilised <a name="technologies-utilised"></a>
 
@@ -319,10 +315,45 @@ Throughout the development process, we encountered and resolved various bugs to 
 | bugs | main.py | Chrome, Safari, Firefox | Desktop, Laptop, Tablet, Mobile | Yes  | Solution |
 
 ## Finished Product <a name="finished-product"></a>
-Print Statement
+
+### User-friendly CLI
+- **Interactive Menu**: Easy navigation through guided menus.
+- **Typing Effect**: Engaging user experience with typing animations.
+- **Color-coded Feedback**: Visual distinction for better understanding.
+
+### Google Sheets Integration
+- **Real-time Data**: Instant updates and cloud storage for secure data management.
+
+### Sales Management
+- **Market Sales Tracking**: View and update daily sales data.
+- **Analytics**: Insights into sales performance.
+
+### Inventory Management
+- **Print Stock**: Track current, production, and forecasted stock.
+- **Materials Monitoring**: Detailed record of screens, squeegees, stencils, plastic, ink, and paper.
+
+### Data Updates
+- **Accurate Updates**: Easily update data with input validation.
+- **Error Handling**: Robust mechanisms to correct invalid entries.
+
+### User Navigation
+- **Main Menu Access**: Return to the main menu or exit anytime.
+- **Loading and Exit Screens**: Informative messages guide users through processes.
+
+## Benefits
+
+- **Efficiency**: Reduces manual effort and errors for accurate data.
+- **Scalability**: Grows with your business, accommodating new data points.
+- **Customization**: Adapts to specific business needs.
+- **Enhanced UX**: Intuitive and enjoyable user interface.
 
 ## Future Features <a name="future-features"></a>
-- Print Statement
+
+- **Custom Reports**: Generate custom reports for specific time frames and sales metrics.
+- **Graphical Analytics**: Visualize data trends with charts and graphs.
+- **User Roles**: Implement user roles and permissions for added security.
+- **Collaboration Tools**: Allow multiple users to collaborate and update data simultaneously.
+- **Online Sales**: Add an online sales feature.
 
 ## Credits <a name="credits"></a>
 
