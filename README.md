@@ -243,17 +243,61 @@ Information is presented in a clear and organized manner, with important details
 ### Developer Convenience
 - **Clear Code Structure**: Well-organized code with comments and functions for different tasks, making it easy to maintain and extend.
 
+- **Welcome Screen** Welcome user to Print Statement with brief synopsis, typing print and loading... feature.
+
 ![welcome-screen](docs/features/welcome.png)
+
+- **About Screen** Gives user a brief description of the purpose of the program.
+
 ![about-screen](docs/features/about.png)
+
+- **Main Menu** Clear Main Menu with numbered options for user to choose to view or update data.
+
 ![menu-screen](docs/features/menu.png)
+
+- **Market Sales** Loads Market Sales with table to clearly view data and option to update, return to menu or exit program.
+
 ![sales](docs/features/sales-table.png)
+
+- **Update Sales** Update sales with clear instructions and notification of a successful update, also updates data in google sheet.
+
 ![update-sales](docs/features/update-sales.png)
+
+- **Updated Sales** Reloads Market Sales with previous update, clear and concise and option to return to menu or exit program.
+
 ![updated-sales](docs/features/updated-sales.png)
+
+- **Print Stock** Loads Print Stock with table to clearly view data and option to update, return to menu or exit program.
+
 ![stock](docs/features/stock.png)
+
+- **Update Print Stock** Update stock with clear instructions and notification of a successful update, also updates data in google sheet.
+
 ![update-stock](docs/features/update-stock.png)
+
+- **Materials** Loads Materials with table to clearly view data and option to update, return to menu or exit program.
+
 ![materials](docs/features/materials.png)
+
+- **Update Materials** Update materials with clear instructions and notification of a successful update, also updates data in google sheet.
+
+![update-materials](docs/features/update-materials.png)
+
+- **Updated Materials** Reloads Materials with previous update, clear and concise and option to return to menu or exit program.
+
+![updated-materials](docs/features/updated-materials.png)
+
+- **Invalid** Comprehensive error messages to display when user inputs incorrect data.
+
 ![invalid](docs/features/invalid.png)
+
+- **Exit Program/Return to Main Menu** User always has option to return to Main Menu or Exit Program.
+
 ![exit](docs/features/exit.png)
+
+- **Exit Program** User can exit program, for the purposes of project there is a return to intial Welcome Screen.
+
+![exiting](docs/features/exiting.png)
 
 ## Functions <a name="functions"></a>
 
