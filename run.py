@@ -58,7 +58,7 @@ def welcome():
     Display Print Statement Banner
     """
     print(
-        colorama.Fore.MAGENTA
+        Fore.MAGENTA
         + Style.BRIGHT
         + """
        +----------------------------------------------------------------+
@@ -316,8 +316,7 @@ def update_data(sheet, headers):
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for"
-            " {headers[column_index-1]} on {day}: \n"
+            + f" Update data by entering new value for {headers[column_index-1]} on {day}: "
             + Fore.WHITE
             + Style.BRIGHT
         )

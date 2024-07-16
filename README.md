@@ -430,9 +430,10 @@ Throughout the development process, we encountered and resolved various bugs to 
 * [PEP8](https://ww1.pep8online.com/?usid=27&utid=6324189552) was used to validate the Python code.
 
 ### Media <a name="media"></a>
-* [Convertio](https://convertio.co/) Convertio utilised to optimise images to webp for readme.
 * [Colorama](https://pypi.org/project/colorama/) was used to add colour to the terminal.
+- [Tabulate](https://pypi.org/project/tabulate/) utilised to form tables for sales, stock and materials data and updates.
 * [Lucid Chart](https://www.lucidchart.com/pages) utilised to create the flowchart during project planning.
+* [Convertio](https://convertio.co/) Convertio utilised to optimise images for readme.
 
 ## Conclusion <a name="conclusion"></a>
 Print Statement is a powerful yet user-friendly CLI application designed to support small screen printing businesses in managing their daily operations efficiently. By providing tools for tracking print runs, sales, inventory levels, and material usage, the application ensures that business owners can maintain accurate records and make informed decisions.
