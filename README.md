@@ -195,6 +195,22 @@ Information is presented in a clear and organized manner, with important details
 - **Responsive Design**: Provides a seamless experience across all devices.
 - **Interactive Elements**: Engages users through dynamic feedback.
 
+### Colours
+
+- Utilised bright colours through importing colorama, allowing for vibrancy and intuitive navigation.
+
+![colorama](docs/colorama.png)
+
+- Magenta utilised for an eye-catching welcome screen banner.
+- Green used for menus and successful updates.
+- Yellow utilised for loading... and updating messaging.
+- Red used for warnings and invalid input.
+- White used for general inputting and display.
+
+![welcome-banner](docs/features/welcome.png)
+
+![color-palette](docs/palette.png)
+
 ## Features
 
 ### User-friendly Command Line Interface (CLI)
@@ -242,6 +258,10 @@ Information is presented in a clear and organized manner, with important details
 
 ### Developer Convenience
 - **Clear Code Structure**: Well-organized code with comments and functions for different tasks, making it easy to maintain and extend.
+
+- **Banner** Logo Banner made to enhance user experience and display name with vibrancy enhancing user experience.
+
+![print-statement-banner](docs/banner.png)
 
 - **Welcome Screen** Welcome user to Print Statement with brief synopsis, typing print and loading... feature.
 
