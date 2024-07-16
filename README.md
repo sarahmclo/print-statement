@@ -243,6 +243,18 @@ Information is presented in a clear and organized manner, with important details
 ### Developer Convenience
 - **Clear Code Structure**: Well-organized code with comments and functions for different tasks, making it easy to maintain and extend.
 
+![welcome-screen](docs/features/welcome.png)
+![about-screen](docs/features/about.png)
+![menu-screen](docs/features/menu.png)
+![sales](docs/features/sales-table.png)
+![update-sales](docs/features/update-sales.png)
+![updated-sales](docs/features/updated-sales.png)
+![stock](docs/features/stock.png)
+![update-stock](docs/features/update-stock.png)
+![materials](docs/features/materials.png)
+![invalid](docs/features/invalid.png)
+![exit](docs/features/exit.png)
+
 ## Functions <a name="functions"></a>
 
 | Function                    | Description                                                                 |
