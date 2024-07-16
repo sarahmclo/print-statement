@@ -29,25 +29,26 @@ Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2
     - [Design Philosophy](#design-philosophy)
     - [Design Choices](#design-choices)
 4. [Features](#features)
-5. [Technologies Utilised](#technologies-utilised)
+5. [Functions](#functions)
+6. [Technologies Utilised](#technologies-utilised)
     - [Languages](#languages)
     - [Frameworks and Programs](#frameworks-and-programs)
-6. [Deployment](#deployment)
+7. [Deployment](#deployment)
     - [Version Control](#version-control)
     - [Page Deployment](#page-deployment)
     - [How to Clone](#how-to-clone)
-7. [Testing](#testing)
+8. [Testing](#testing)
     - [Validation Testing](#validation-testing)
     - [Accessibility](#accessibility)
     - [Manual Testing](#manual-testing)
-8. [Bugs and Fixes](#bugs-and-fixes)
-9. [Finished Product](#finished-product)
-10. [Future Features](#future-features)
-11. [Credits](#credits)
+9. [Bugs and Fixes](#bugs-and-fixes)
+10. [Finished Product](#finished-product)
+11. [Future Features](#future-features)
+12. [Credits](#credits)
     - [Content and Code](#content-and-code)
     - [Media](#media)
-12. [Conclusion](#conclusion)
-13. [Acknowledgements](#acknowledgements)
+13. [Conclusion](#conclusion)
+14. [Acknowledgements](#acknowledgements)
 
 ## User Experience (UX)<a name="user-experience"></a>
 
@@ -134,7 +135,6 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 ![flowchart](docs/print-statement-flowchart.png)
 
-### Data Model - Connecting Google Sheets
 ### Data Model - Connecting Google Sheets
 
 | Step Description                                                                 | Details                                                                                                                                                                       |
@@ -229,6 +229,37 @@ Information is presented in a clear and organized manner, with important details
 
 ### Developer Convenience
 - **Clear Code Structure**: Well-organized code with comments and functions for different tasks, making it easy to maintain and extend.
+
+## Functions <a name="functions"></a>
+
+| Function                    | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| `welcome()`                 | Displays welcome messages and initializes the program.                      |
+| `clearScreen()`             | Clears the screen for better user interface.                                 |
+| `options()`                 | Displays the main menu and handles user input for menu selection.            |
+| `view_sales("Market Sales")`| Fetches and displays sales data for market sales.                            |
+| `view_stock()`              | Fetches and displays stock data.                                             |
+| `view_materials()`          | Fetches and displays materials data.                                         |
+| `exit_program()`            | Exits the program after displaying exit messages.                            |
+| `update_data(sheet, headers)`         | Updates sales data based on user input (print number and day).               |
+| `update_stock_data(sheet, headers)`   | Updates stock data based on user input (stock type and print number).        |
+| `update_materials_data(sheet, headers)`| Updates materials data based on user input (materials type).               |
+
+**Function Details:**
+
+- **`welcome()`**: Displays initial messages upon program start.
+- **`clearScreen()`**: Clears the screen for a cleaner interface.
+- **`options()`**: Main menu function allowing user to select various operations.
+- **`view_sales("Market Sales")`**: Retrieves and shows sales data specific to market sales.
+- **`view_stock()`**: Retrieves and displays current stock information.
+- **`view_materials()`**: Retrieves and shows materials data.
+- **`exit_program()`**: Handles program termination with appropriate messages.
+- **`update_data(sheet, headers)`**: Updates sales data in the specified Google Sheets.
+- **`update_stock_data(sheet, headers)`**: Updates stock data in the specified Google Sheets.
+- **`update_materials_data(sheet, headers)`**: Updates materials data in the specified Google Sheets.
+
+Each function corresponds to specific actions within your program, facilitating easy navigation and interaction for the user.
+
 
 ## Technologies Utilised <a name="technologies-utilised"></a>
 

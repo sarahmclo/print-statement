@@ -195,7 +195,7 @@ def view_sales(sheet_name):  # Sales Function
             else:
                 print(
                     Fore.RED + Style.BRIGHT +
-                    " Invalid input. Please enter 'Y' or 'N'."
+                    " Invalid input. Please enter 'Y' or 'N'"
                 )
 
         while True:
@@ -242,12 +242,12 @@ def view_sales(sheet_name):  # Sales Function
                         print(
                             Fore.RED
                             + Style.BRIGHT
-                            + " Invalid input. Please enter correctly"
+                            + " Invalid input. Please enter correctly."
                         )
             else:
                 print(
                     Fore.RED + Style.BRIGHT +
-                    " Invalid input. Please enter correctly"
+                    " Invalid input. Please enter correctly."
                 )
 
 
@@ -268,7 +268,7 @@ def update_data(sheet, headers):
             input(
                 Fore.YELLOW
                 + Style.BRIGHT
-                + f" Enter day (Mon, Tues, Wed, Thurs, Fri): "
+                + f" Enter day (Mon, Tues, Wed, Thurs, Fri): \n"
                 + Fore.WHITE
                 + Style.BRIGHT
             )
@@ -317,7 +317,7 @@ def update_data(sheet, headers):
             Fore.MAGENTA
             + Style.BRIGHT
             + f" Update data by entering new value for"
-            " '{headers[column_index-1]}' on '{day}': "
+            " {headers[column_index-1]} on {day}: \n"
             + Fore.WHITE
             + Style.BRIGHT
         )
