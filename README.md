@@ -6,12 +6,11 @@ Welcome to Print Statement, a Python command line interface (CLI) application cr
 
 Run the Print Statement program [here](https://print-statement-32b6316d2a47.herokuapp.com/)
 
-Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2cyK-pgUHrKHa2XV_88RbtFrG6MvRe8Mn8bJPPdHk/edit?usp=sharing)
+Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2cyK-pgUHrKHa2XV_88RbtFrG6MvRe8Mn8bJPPdHk/edit?gid=1680754323#gid=1680754323)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/sarahmclo/print-statement)
 ![GitHub language count](https://img.shields.io/github/languages/count/sarahmclo/print-statement)
 ![GitHub top language](https://img.shields.io/github/languages/top/sarahmclo/print-statement)
-![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Fprint-statement-32b6316d2a47.herokuapp.com%2F)
 
 ## Table of Contents
 1. [User Experience (UX)](#user-experience)
@@ -119,11 +118,21 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 ## Project Planning <a name="project-planning"></a>
 
-### Process
+| **Process**                  | **Details**|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Conceptualization**      | - **Idea Generation**: Inspired by the need for a streamlined tool for small screen printing businesses.<br>- **Research**: Studied specific needs like inventory management, sales tracking, and forecasting. |
+| **Planning**               | - **Defining Project Goals**: Outlined goals focusing on user-friendly design, comprehensive management tools, and customization.<br>- **User Stories and Target Audience Goals**: Created detailed user stories. |
+| **Design**                 | - **Flow Chart Creation**: Used [Lucid Chart](https://www.lucidchart.com/pages) to visualize application structure.<br>- **Data Model Design**: Planned data model for Google Sheets integration.<br>- **Interface Design**: Designed CLI with usability and vibrant colors. |
+| **Development**            | - **Setting Up Environment**: Utilized Gitpod for coding and GitHub for version control.<br>- **Implementing Core Features**: Developed print run tracking, sales management, inventory tracking, and forecasting.<br>- **Connecting to Google Sheets**: Integrated with Google Sheets using GSpread and OAuth packages. |
+| **Testing**                | - **Validation Testing**: Used Pep8 Linter for code validation.<br>- **Accessibility Testing**: Used Lighthouse for accessibility testing.<br>- **Manual Testing**: Performed extensive testing across browsers and devices. |
+| **Deployment**             | - **Deploying to Heroku**: Deployed the application on Heroku.<br>- **Version Control**: Used Git for version control with regular commits to GitHub.                                                      |
+| **Feedback and Iteration** | - **Gathering User Feedback**: Collected initial user feedback.<br>- **Continuous Improvement**: Implemented enhancements based on feedback.                                                               |
 
 ### Flow Chart
 
 [**Lucid Chart**](https://www.lucidchart.com/pages) was utilised to create the flowchart during project planning.
+
+![flowchart](docs/print-statement-flowchart.png)
 
 ### Data Model - Connecting Google Sheets
 - This project required the use of Google Drive API and Google Sheets API, both enabled via Google Cloud Platform.
@@ -134,6 +143,16 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 - Using the terminal, GSpread and OAuth packages were installed.
 
 ### Structure
+
+| **Aspect**                  | **Details**                                                                                                                                                                                               |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Command Line Interface (CLI)** | - **User Interaction**: The application uses a CLI to facilitate user interaction, making it straightforward for users to input and retrieve data.<br>- **Menu Navigation**: Intuitive menus guide users through different functions, such as tracking print runs, managing inventory, and analyzing sales data. |
+| **Data Storage**            | - **Google Sheets Integration**: Data is stored in Google Sheets, providing a reliable and accessible way to manage business records.<br>- **Real-time Updates**: Changes made in the application are immediately reflected in the Google Sheets, ensuring up-to-date information. |
+| **Data Model**              | - **Structured Data**: Information is organized into tables within Google Sheets, making it easy to access and manipulate.<br>- **Relationship Management**: The data model ensures that relationships between different data points (e.g., inventory items and sales records) are maintained. |
+| **Functionality**           | - **Print Run Tracking**: Users can log daily print runs, keeping accurate records of production.<br>- **Inventory Management**: The application tracks inventory levels, usage, and restocking needs.<br>- **Sales Analysis**: Sales data is analyzed to forecast future inventory needs and guide business decisions. |
+| **Customization and Flexibility** | - **User-defined Parameters**: Users can customize various aspects of the application to fit their specific business needs, such as adding new print designs or adjusting stock levels.<br>- **Scalability**: The structure of the application allows for easy scaling as the business grows, with the ability to add more data points and complexity over time. |
+| **Error Handling and Validation** | - **Input Validation**: Ensures that the data entered by users is accurate and in the correct format.<br>- **Error Messages**: Provides clear and helpful error messages to guide users in case of incorrect inputs or other issues. |
+
 
 ## Design <a name="design"></a>
 
@@ -160,6 +179,8 @@ Information is presented in a clear and organized manner, with important details
 - **Interactive Elements**: Engages users through dynamic feedback.
 
 ## Features
+
+
 
 ## Technologies Utilised <a name="technologies-utilised"></a>
 
