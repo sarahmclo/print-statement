@@ -292,6 +292,7 @@ Provided as part of Code Institute's [Python Essentials Template](https://github
 - [**Heroku**](https://www.heroku.com/home) used to host and deploy the finished project.
 - [**PEP8**](https://ww1.pep8online.com/?usid=27&utid=6324189552) was used to validate the Python code.
 - [**Colorama**](https://pypi.org/project/colorama/) was used to add colour to the terminal.
+- [**Tabulate**](https://pypi.org/project/tabulate/) utilised to form tables for sales, stock and materials data and updates.
 - [**GSpread**](https://docs.gspread.org/en/v6.0.0/) utilised to interact with the data in the linked sheet.
 - [**Google OAuth**](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html) was used to authenticate the program in order to access Google's APIs.
 - [**Google Cloud**](https://cloud.google.com/) was used to generate the APIs required to connect the data sheets with the Python code.
