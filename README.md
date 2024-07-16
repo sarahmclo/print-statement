@@ -135,12 +135,17 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 ![flowchart](docs/print-statement-flowchart.png)
 
 ### Data Model - Connecting Google Sheets
-- This project required the use of Google Drive API and Google Sheets API, both enabled via Google Cloud Platform.
-- A credentials file was generated through the Google Drive API and added to the workspace.
-- To ensure that the sensitive information contained in the credentials would not be pushed to the repository, the credentials file was added to gitignore.
-- The client_email address contained within the credentials file was added to Google Sheets as an editor to enable access.
-- Variables and scope to access the worksheet were defined at the top of the run.py file.
-- Using the terminal, GSpread and OAuth packages were installed.
+### Data Model - Connecting Google Sheets
+
+| Step Description                                                                 | Details                                                                                                                                                                       |
+|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Google Drive and Sheets API Setup                                                 | Enabled via Google Cloud Platform.                                                                                                                                            |
+| Credentials File Generation                                                      | Generated through the Google Drive API and added to the workspace.                                                                                                            |
+| Gitignore Configuration                                                          | Added credentials file to `.gitignore` to prevent sensitive information from being pushed to the repository.                                                                  |
+| Permissions Setup                                                               | Added client_email address from credentials file as an editor in Google Sheets to enable access.                                                                               |
+| Variable Definition and Scope                                                    | Defined at the top of `run.py` file for accessing the worksheet.                                                                                                              |
+| Package Installation                                                            | Installed GSpread and OAuth packages using terminal for interacting with Google Sheets.                                                                                       |
+
 
 ### Structure
 
