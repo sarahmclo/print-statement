@@ -135,7 +135,9 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 ![flowchart](docs/print-statement-flowchart.png)
 
-### Data Model - Connecting Google Sheets
+### Data Model
+
+- **Connecting Google Sheets**
 
 | Step Description                                                                 | Details                                                                                                                                                                       |
 |----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,6 +148,17 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 | Variable Definition and Scope                                                    | Defined at the top of `run.py` file for accessing the worksheet.                                                                                                              |
 | Package Installation                                                            | Installed GSpread and OAuth packages using terminal for interacting with Google Sheets.                                                                                       |
 
+- **Market Sales**
+
+![google-sheets](docs/market-sales-gs.png)
+
+- **Print Stock**
+
+![google-sheets](docs/print-stock-gs.png)
+
+- **Materials**
+
+![google-sheets](docs/materials-gs.png)
 
 ### Structure
 
@@ -259,7 +272,6 @@ Information is presented in a clear and organized manner, with important details
 - **`update_materials_data(sheet, headers)`**: Updates materials data in the specified Google Sheets.
 
 Each function corresponds to specific actions within your program, facilitating easy navigation and interaction for the user.
-
 
 ## Technologies Utilised <a name="technologies-utilised"></a>
 
