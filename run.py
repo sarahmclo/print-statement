@@ -58,9 +58,14 @@ def welcome():
     Display Print Statement Banner
     """
     print(
-        Fore.MAGENTA
-        + Style.BRIGHT
-        + """
+    f"""
+    <style>
+    .magenta-bright {{
+        color: #FF00FF;
+        font-weight: bold;
+    }}
+    </style>
+    <div class="magenta-bright">
        +----------------------------------------------------------------+
        |  ######                                                        |
        |  #     # #####  # #    # #####                                 |
@@ -78,8 +83,9 @@ def welcome():
        |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
        +----------------------------------------------------------------+
        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-"""
-    )
+    </div>
+    """
+)
     time.sleep(1)
     """
     Display welcome screen text
@@ -268,7 +274,7 @@ def update_data(sheet, headers):
             input(
                 Fore.YELLOW
                 + Style.BRIGHT
-                + f" Enter day (Mon, Tues, Wed, Thurs, Fri): \n"
+                + f" Enter day (Mon, Tues, Wed, Thurs, Fri): "
                 + Fore.WHITE
                 + Style.BRIGHT
             )
