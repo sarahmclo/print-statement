@@ -135,7 +135,7 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 [**Lucid Chart**](https://www.lucidchart.com/pages) was utilised to create the flowchart during project planning.
 
-![flowchart](docs/print-statement-flowchart.png)
+![flowchart](docs/ux/print-statement-flowchart.png)
 
 ### Data Model <a name="data-model"></a>
 
@@ -201,7 +201,7 @@ Information is presented in a clear and organized manner, with important details
 
 - Utilised bright colours through importing colorama, allowing for vibrancy and intuitive navigation.
 
-![colorama](docs/colorama.png)
+![colorama](docs/ux/colorama.png)
 
 - Magenta utilised for an eye-catching welcome screen banner.
 - Green used for menus and successful updates.
@@ -211,7 +211,7 @@ Information is presented in a clear and organized manner, with important details
 
 ![welcome-banner](docs/features/welcome.png)
 
-![color-palette](docs/palette.png)
+![color-palette](docs/ux/palette.png)
 
 ## Features
 
@@ -263,7 +263,7 @@ Information is presented in a clear and organized manner, with important details
 
 - **Banner** Logo Banner made to enhance user experience and display name with vibrancy enhancing user experience.
 
-![print-statement-banner](docs/banner.png)
+![print-statement-banner](docs/ux/banner.png)
 
 - **Welcome Screen** Welcome user to Print Statement with brief synopsis, typing print and loading... feature.
 
@@ -418,22 +418,43 @@ Git was used for version control. Version control was done locally and remotely 
 
 Pep8 Linter Validation. No errors remain in final testing.
 
-![markup-validation-index](docs/val-python-linter.png)
+![markup-validation-index](docs/validation/val-python-linter.png)
 
 ### Accessibility <a name="accessibility"></a>
 
 Lighhouse Testing
 
-![lighthouse-testing](docs/val-lighthouse.png)
+![lighthouse-testing](docs/validation/val-lighthouse.png)
  
 ### Manual Testing <a name="manual-testing"></a>
 
-Manual testing for the site involves hands-on evaluation by human testers to ensure functionality, usability, and compatibility across various devices and browsers. By conducting the manual testing procedures below, we ensure the website functions smoothly, provides an optimal user experience, and meets desired standards.
+Manual testing for the site involves hands-on evaluation by human testers to ensure functionality, usability, and compatibility across various devices and browsers. By conducting the manual testing procedures below, we ensure the program functions smoothly, provides an optimal user experience, and meets desired standards both for navigational and performance testing purposes.
 
-| Testing | Description | Browser | Device | Fixed |
-|-------------|-----------------------|---------|--------|----------|
-| **Navigation Testing:** | bugs | Chrome, Safari, Firefox | Desktop, Laptop | Yes |
-| **Performance Testing:** | bugs | Chrome, Safari, Firefox | Desktop, Laptop | Yes |
+# Manual Test Cases
+
+| Test ID | Test Description                                                                                        | Expected Result                                                                                  | Status (Pass/Fail) |
+|---------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------|
+| 1       | **Verify welcome banner and introductory text**                                                         | Welcome banner and introductory text should display correctly with color formatting.             |   Pass             |
+| 2       | **Verify clear screen functionality**                                                                   | The screen should be cleared properly when `clearScreen` is called.                              |   Pass             |
+| 3       | **Verify typing effect for `typingPrint`**                                                              | Text should be displayed with a typing effect, with the specified color.                         |   Pass             |
+| 4       | **Verify typing effect for `typeInput`**                                                                | Input prompt should display text with a typing effect.                                           |   Pass            |
+| 5       | **Verify main menu options display**                                                                    | Main menu options should be displayed with correct formatting and colors.                        |   Pass             |
+| 6       | **Verify invalid menu option handling**                                                                 | Invalid input for the main menu should display an error message and prompt the user again.       |   Pass             |
+| 7       | **Verify valid menu option handling**                                                                   | Valid input should navigate to the corresponding section (Market Sales, Print Stock, Materials). |   Pass             |
+| 8       | **Verify viewing sales data**                                                                           | Sales data should be fetched from the "Market Sales" sheet and displayed in a table format.      |   Pass             |
+| 9       | **Verify updating sales data with valid input**                                                         | Sales data should be updated successfully in the spreadsheet when valid input is provided.       |   Pass             |
+| 10      | **Verify handling invalid input for updating sales data**                                               | Invalid input should display an error message and prompt the user again.                         |   Pass             |
+| 11      | **Verify viewing stock data**                                                                           | Stock data should be fetched from the "Print Stock" sheet and displayed in a table format.       |    Pass          |
+| 12      | **Verify updating stock data with valid input**                                                         | Stock data should be updated successfully in the spreadsheet when valid input is provided.       |  Pass              |
+| 13      | **Verify handling invalid input for updating stock data**                                               | Invalid input should display an error message and prompt the user again.                         |   Pass             |
+| 14      | **Verify viewing materials data**                                                                       | Materials data should be fetched from the "Materials" sheet and displayed in a table format.     |   Pass             |
+| 15      | **Verify updating materials data with valid input**                                                     | Materials data should be updated successfully in the spreadsheet when valid input is provided.   |    Pass            |
+| 16      | **Verify handling invalid input for updating materials data**                                           | Invalid input should display an error message and prompt the user again.                         |    Pass            |
+| 17      | **Verify exit program functionality**                                                                   | Program should exit and display the exit message when "Exit Program" is selected.                |     Pass          |
+| 18      | **Verify return to main menu after updating data in Market Sales section**                              | After updating data in Market Sales, user should be prompted to return to main menu or exit.     |     Pass           |
+| 19      | **Verify return to main menu after updating data in Print Stock section**                               | After updating data in Print Stock, user should be prompted to return to main menu or exit.      |    Pass            |
+| 20      | **Verify return to main menu after updating data in Materials section**                                 | After updating data in Materials, user should be prompted to return to main menu or exit.        |     Pass           |
+| 21      | **Verify return to main menu after updating data in Materials section**                                 | After updating data in Materials, user should be prompted to return to main menu or exit.        |     Pass           |
 
 ## Bugs and Fixes <a name="bugs-and-fixes"></a>
 
@@ -509,7 +530,7 @@ Throughout the development process, we encountered and resolved various bugs to 
 
 ### Media <a name="media"></a>
 * [Colorama](https://pypi.org/project/colorama/) was used to add colour to the terminal.
-- [Tabulate](https://pypi.org/project/tabulate/) utilised to form tables for sales, stock and materials data and updates.
+* [Tabulate](https://pypi.org/project/tabulate/) utilised to form tables for sales, stock and materials data and updates.
 * [Lucid Chart](https://www.lucidchart.com/pages) utilised to create the flowchart during project planning.
 * [Convertio](https://convertio.co/) Convertio utilised to optimise images for readme.
 
