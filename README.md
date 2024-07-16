@@ -1,6 +1,6 @@
 # Print Statement
 
-![Mock-Up](docs/ps-mockup.png)
+![Mock-Up](docs/ux/ps-mockup.png)
 
 Welcome to Print Statement, a Python command line interface (CLI) application created for a small screen printing business that sells original print creations at a local market. Fully customizable, Print Statement allows users to easily update their print stock and inventory items through intuitive menus and dynamic feedback. Print statement is an efficient interface for artists and can be adapted to meet the unique needs of similar ventures. 
 
@@ -119,6 +119,8 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 ## Project Planning <a name="project-planning"></a>
 
+### Process <a name="process"></a>
+
 | **Process**                  | **Details**|
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Conceptualization**      | - **Idea Generation**: Inspired by the need for a streamlined tool for small screen printing businesses.<br>- **Research**: Studied specific needs like inventory management, sales tracking, and forecasting. |
@@ -129,13 +131,13 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 | **Deployment**             | - **Deploying to Heroku**: Deployed the application on Heroku.<br>- **Version Control**: Used Git for version control with regular commits to GitHub.                                                      |
 | **Feedback and Iteration** | - **Gathering User Feedback**: Collected initial user feedback.<br>- **Continuous Improvement**: Implemented enhancements based on feedback.                                                               |
 
-### Flow Chart
+### Flow Chart <a name="flow-chart"></a>
 
 [**Lucid Chart**](https://www.lucidchart.com/pages) was utilised to create the flowchart during project planning.
 
 ![flowchart](docs/print-statement-flowchart.png)
 
-### Data Model
+### Data Model <a name="data-model"></a>
 
 - **Connecting Google Sheets**
 
@@ -150,17 +152,17 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 - **Market Sales**
 
-![google-sheets](docs/market-sales-gs.png)
+![google-sheets](docs/google-sheet/market-sales-gs.png)
 
 - **Print Stock**
 
-![google-sheets](docs/print-stock-gs.png)
+![google-sheets](docs/google-sheet/print-stock-gs.png)
 
 - **Materials**
 
-![google-sheets](docs/materials-gs.png)
+![google-sheets](docs/google-sheet/materials-gs.png)
 
-### Structure
+### Structure <a name="structure"></a>
 
 | **Aspect**                  | **Details**                                                                                                                                                                                               |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
