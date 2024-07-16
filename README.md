@@ -304,28 +304,34 @@ Git was used for version control. Version control was done locally and remotely 
 
 ### Version Control <a name="version-control"></a>
 
-| Action                           | Description                                                                 |
-|----------------------------------|-----------------------------------------------------------------------------|
-| Site Creation and Remote Push    | Created using Gitpod editor and pushed to GitHub repository 'print-statement'|
-| Committing Changes               | `git add .` to stage changes, `git commit -m "commit message"` to commit, `git push` to push changes to GitHub |
+- The site was created using Gitpod editor and pushed to Github to the remote repository 'print-statement'.
+- Git commands were used throughout the development to push the code to the remote repository. 
+- Regular commits were made after changes:
+    - git add . used to add the files to the staging area before being committed.
+    - git commit -m "commit message" used to commit changes to the local repository queue.
+    - git push used to push all committed code to the remote repository on Github.
 
 ### Page Deployment <a name="page-deployment"></a>
 
-| Step                                 | Description                                                                                          |
-|--------------------------------------|------------------------------------------------------------------------------------------------------|
-| Create Heroku App                    | Create a new app from the Heroku dashboard, select region, and configure settings                    |
-| Configure Buildpacks and Config Vars | Add Python and NodeJS buildpacks in that order, set necessary environment variables                   |
-| GitHub Integration                   | Link GitHub repository to Heroku app, select deployment method, and deploy the main branch manually    |
-| Finalize Deployment                  | Wait for build completion on Heroku, verify deployment status, and access the app through Heroku link |
+- The app was deployed with Heroku following these steps:
+- After creating a Heroku account, click "New" to create a new app from the dashboard.
+- Create a name of the app, that needs to be unique, and select your region. Press "Create app"
+- Go to settings and add the necessary Config_vars and buildpacks. Make sure that the buildpacks are set to "Python" and "NodeJS", in that order.
+- Go to Deploy tab and scroll down to Deployment Method.
+- Select GitHub and search for your GitHub repository.
+- Scroll down to deploy options.
+- For this project the Manual Deploy method was chosen.
+- Choose main branch and click Deploy Branch. This will deploy the current state of the branch specified.
+- Now the app is being built and when Deploy to Heroku has a green check mark, the build is finished.
+- Click View button to open the app in a browser window.
 
 ### How to Clone <a name="how-to-clone"></a>
 
-| Action                       | Description                                                                      |
-|------------------------------|----------------------------------------------------------------------------------|
-| Get Repository URL           | Click on "Code" button on GitHub, copy HTTPS URL                                   |
-| Clone Repository             | Use IDE terminal to clone repository using `git clone <repository-url>`            |
-| Local Repository Creation    | The project is now available locally for development and testing                  |
-
+- Go to the Github repository that you want to clone.
+- Click on the Code button located above all the project files.
+- Click on HTTPS and copy the repository link.
+- Open the IDE of your choice and and paste the copied git url into the IDE terminal.
+- The project is now created as a local clone.
 
 ## Testing <a name="testing"></a>
 
