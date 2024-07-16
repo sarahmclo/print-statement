@@ -58,14 +58,9 @@ def welcome():
     Display Print Statement Banner
     """
     print(
-    f"""
-    <style>
-    .magenta-bright {{
-        color: #FF00FF;
-        font-weight: bold;
-    }}
-    </style>
-    <div class="magenta-bright">
+        colorama.Fore.MAGENTA
+        + Style.BRIGHT
+        + """
        +----------------------------------------------------------------+
        |  ######                                                        |
        |  #     # #####  # #    # #####                                 |
@@ -83,9 +78,8 @@ def welcome():
        |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
        +----------------------------------------------------------------+
        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    </div>
-    """
-)
+"""
+    )
     time.sleep(1)
     """
     Display welcome screen text
