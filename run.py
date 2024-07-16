@@ -561,21 +561,20 @@ def update_stock_data(sheet, headers):
                 row_index = i + 1  # Do not allow for header update
                 break
         if row_index is None:
-            print(Fore.RED + Style.BRIGHT + f"Invalid input for {stock_type}.")
+            print(Fore.RED + Style.BRIGHT + f" Invalid input for {stock_type}.")
             continue
 
         # Input new value
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for"
-            " '{headers[column_index-1]}' on '{stock_type}': "
+            + f" Update data by entering new value for '{headers[column_index-1]}' on '{stock_type}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
         if not new_value.replace(".", "", 1).isdigit():
             print(Fore.RED + Style.BRIGHT +
-                  "Invalid input. Please enter correctly.")
+                  " Invalid input. Please enter correctly.")
             continue
 
         # Update indices
@@ -742,8 +741,7 @@ def update_materials_data(sheet, headers):
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value"
-            " for 'Quantity' on '{materials_type}': "
+            + f" Update data by entering new value for 'Quantity' on '{materials_type}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
