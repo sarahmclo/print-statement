@@ -9,7 +9,7 @@ from tabulate import tabulate
 # Import colorama modules, adapted from tutorial:
 # https://linuxhint.com/colorama-python/
 import colorama
-from colorama import Fore, Style
+from colorama import Fore, Back, Style
 
 # Initialise colorama
 colorama.init(autoreset=True)
@@ -60,7 +60,7 @@ def welcome():
     print(
         Fore.MAGENTA
         + Style.BRIGHT
-        + """
+        + '''
        +----------------------------------------------------------------+
        |  ######                                                        |
        |  #     # #####  # #    # #####                                 |
@@ -78,7 +78,7 @@ def welcome():
        |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
        +----------------------------------------------------------------+
        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-"""
+'''
     )
     time.sleep(1)
     """
