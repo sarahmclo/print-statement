@@ -59,63 +59,47 @@ Print Statement is designed with ease of use in mind, ensuring that artists can 
    - Clear prompts guide the user through each step of the process, reducing the learning curve.
 
 **Comprehensive Management**:
-   - Users can easily track daily print runs and sales, ensuring accurate records of their business activities.
-   - Tables are used to organize and retrieve information about specific jobs, providing clarity and organization.
+   - Users can easily track daily print stock, materials and sales, ensuring accurate records of their business activities.
+   - Tables are used to organize and retrieve information about specific jobs, providing clarity and organisation.
 
 **Inventory Tracking**:
    - The application keeps detailed records of inventory levels, showing what screen print stock is available and what has been sold.
    - It highlights materials used in the printing process and indicates what needs to be restocked, helping users maintain optimal inventory levels.
 
 **Sales and Forecasting**:
-   - By analyzing sales data, Print Statement suggests what products might be needed for future markets, aiding in better planning and preparation.
+   - By analysing sales data, Print Statement suggests what products might be needed for future markets, aiding in better planning and preparation.
    - This feature helps users make informed decisions about what to print and bring to upcoming markets.
 
-**Customization**:
-   - The application is fully customizable, allowing users to adjust print stock and inventory items as needed, it can also be adapted to suit other artist's businesses.
+**Customisation**:
+   - The application is fully customisable, allowing users to adjust print stock and inventory items as needed, it can also be adapted to suit other artist's businesses.
    - Multiple menus provide options for editing and updating various aspects of the business, ensuring the application remains relevant and useful as the business evolves.
 
 **Efficiency**:
    - Designed to streamline the daily operations of a small screen printing business, Print Statement saves time and reduces administrative burdens.
-   - Users can focus more on their creative work and customer interactions, knowing that their operational data is well-organized and easily accessible.
+   - Users can focus more on their creative work and customer interactions, knowing that their operational data is well-organised and easily accessible.
 
-Overall, Print Statement enhances the user experience by providing a reliable, customizable, and efficient tool for managing the key aspects of a small screen printing business.
+Overall, Print Statement enhances the user experience by providing a reliable, customisable, and efficient tool for managing the key aspects of a small screen printing business.
 
 ## Project Goals
-- Develop a user-friendly CLI application to assist small screen printing businesses in managing their daily operations.
-- Provide comprehensive tools for tracking print runs, sales, inventory levels, and material usage.
+- Develop a user-friendly CLI application to assist small screen printing businesses/artists in managing their daily operations.
+- Provide comprehensive tools for tracking sales, inventory levels, and material usage.
 - Enable businesses to forecast future inventory needs based on sales data.
-- Ensure the application is fully customizable to adapt to the evolving needs of each business.
+- Ensure the application is fully customisable to adapt to the evolving needs of the business.
 
 ## User Stories
 - As a small business owner, I want to easily record and track daily print runs and sales so that I can maintain accurate business records.
 - As an inventory manager, I want to monitor material usage and stock levels, so I can ensure we never run out of necessary supplies.
-- As a market seller, I want to predict what products will be needed for future markets based on past sales, so I can optimize my stock and increase sales.
+- As a market seller, I want to predict what products will be needed for future markets based on past sales, so I can optimise my stock and increase sales.
 - As a new user, I want clear instructions and prompts, so I can quickly learn how to use the application without extensive training.
 - As a frequent user, I want customizable options, so I can update my print stock and inventory items as my business changes.
 
-## Target Audience Goals
-- Efficiently manage daily operations and inventory for their screen printing business.
-- Keep accurate records of sales and print runs to inform business decisions.
-- Forecast future stock needs to optimize inventory and reduce waste.
-- Customize the application to suit specific business needs and preferences.
-
-## Site Owner Goals
-- Provide a robust, reliable tool that meets the operational needs of small screen printing businesses.
-- Ensure the application is intuitive and easy to use, reducing the time required for training and onboarding.
-- Continuously improve the application based on user feedback to maintain relevance and utility.
-- Support the growth and success of small screen printing businesses by streamlining their workflow.
-
-## First Time User Goals
-- Quickly understand the basic functionality and navigation of the application.
-- Successfully input initial data, such as current inventory and print designs, without confusion.
-- Feel confident in using the application to track daily operations after a brief learning period.
-- Access clear, helpful documentation and support resources if needed.
-
-## Return User Goals
-- Easily update and modify existing data, such as adding new print designs or adjusting inventory levels.
-- Quickly access and review historical sales and inventory data to inform current decisions.
-- Utilize advanced features for forecasting and planning future markets based on past performance.
-- Experience seamless, efficient use of the application to support ongoing business operations.
+## User Goals
+- Efficient operations and inventory management.
+- Customisable and intuitive application.
+- Accurate records and data-driven decisions.
+- Continuous improvement and feedback.
+- Clear documentation and support.
+- Seamless data management and historical review.
 
 ## Project Planning <a name="project-planning"></a>
 
@@ -123,17 +107,17 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 | **Process**                  | **Details**|
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Conceptualization**      | - **Idea Generation**: Inspired by the need for a streamlined tool for small screen printing businesses.<br>- **Research**: Studied specific needs like inventory management, sales tracking, and forecasting. |
-| **Planning**               | - **Defining Project Goals**: Outlined goals focusing on user-friendly design, comprehensive management tools, and customization.<br>- **User Stories and Target Audience Goals**: Created detailed user stories. |
-| **Design**                 | - **Flow Chart Creation**: Used [Lucid Chart](https://www.lucidchart.com/pages) to visualize application structure.<br>- **Data Model Design**: Planned data model for Google Sheets integration.<br>- **Interface Design**: Designed CLI with usability and vibrant colors. |
-| **Development**            | - **Setting Up Environment**: Utilized Gitpod for coding and GitHub for version control.<br>- **Implementing Core Features**: Developed print run tracking, sales management, inventory tracking, and forecasting.<br>- **Connecting to Google Sheets**: Integrated with Google Sheets using GSpread and OAuth packages. |
+| **Conceptualisation**      | - **Idea Generation**: Inspired by the need for a streamlined tool for small screen printing businesses.<br>- **Research**: Studied specific needs like inventory management, sales tracking, and forecasting. |
+| **Planning**               | - **Defining Project Goals**: Outlined goals focusing on user-friendly design, comprehensive management tools, and customisation.<br>- **User Stories and Target Audience Goals**: Created detailed user stories. |
+| **Design**                 | - **Flow Chart Creation**: Used [Lucid Chart](https://www.lucidchart.com/pages) to visualise application structure.<br>- **Data Model Design**: Planned data model for Google Sheets integration.<br>- **Interface Design**: Designed CLI with usability and vibrant colours. |
+| **Development**            | - **Setting Up Environment**: Utilised Gitpod for coding and GitHub for version control.<br>- **Implementing Core Features**: Developed print tracking, sales management, inventory tracking, and forecasting.<br>- **Connecting to Google Sheets**: Integrated with Google Sheets using GSpread and OAuth packages. |
 | **Testing**                | - **Validation Testing**: Used Pep8 Linter for code validation.<br>- **Accessibility Testing**: Used Lighthouse for accessibility testing.<br>- **Manual Testing**: Performed extensive testing across browsers and devices. |
 | **Deployment**             | - **Deploying to Heroku**: Deployed the application on Heroku.<br>- **Version Control**: Used Git for version control with regular commits to GitHub.                                                      |
 | **Feedback and Iteration** | - **Gathering User Feedback**: Collected initial user feedback.<br>- **Continuous Improvement**: Implemented enhancements based on feedback.                                                               |
 
 ### Flow Chart <a name="flow-chart"></a>
 
-[**Lucid Chart**](https://www.lucidchart.com/pages) was utilised to create the flowchart during project planning.
+[**Lucid Chart**](https://www.lucidchart.com/pages) was utilised to create the flowchart during the project planning phase.
 
 ![flowchart](docs/ux/print-statement-flowchart.png)
 
@@ -141,7 +125,7 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 - **Connecting Google Sheets**
 
-| Step Description                                                                 | Details                                                                                                                                                                       |
+| Steps                                                                 | Details                                                                                                                                                                       |
 |----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Google Drive and Sheets API Setup                                                 | Enabled via Google Cloud Platform.                                                                                                                                            |
 | Credentials File Generation                                                      | Generated through the Google Drive API and added to the workspace.                                                                                                            |
@@ -166,11 +150,11 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 
 | **Aspect**                  | **Details**                                                                                                                                                                                               |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Command Line Interface (CLI)** | - **User Interaction**: The application uses a CLI to facilitate user interaction, making it straightforward for users to input and retrieve data.<br>- **Menu Navigation**: Intuitive menus guide users through different functions, such as tracking print runs, managing inventory, and analyzing sales data. |
+| **Command Line Interface (CLI)** | - **User Interaction**: The application uses a CLI to facilitate user interaction, making it straightforward for users to input and retrieve data.<br>- **Menu Navigation**: Intuitive menus guide users through different functions, such as tracking print runs, managing inventory, and analysing sales data. |
 | **Data Storage**            | - **Google Sheets Integration**: Data is stored in Google Sheets, providing a reliable and accessible way to manage business records.<br>- **Real-time Updates**: Changes made in the application are immediately reflected in the Google Sheets, ensuring up-to-date information. |
-| **Data Model**              | - **Structured Data**: Information is organized into tables within Google Sheets, making it easy to access and manipulate.<br>- **Relationship Management**: The data model ensures that relationships between different data points (e.g., inventory items and sales records) are maintained. |
-| **Functionality**           | - **Print Run Tracking**: Users can log daily print runs, keeping accurate records of production.<br>- **Inventory Management**: The application tracks inventory levels, usage, and restocking needs.<br>- **Sales Analysis**: Sales data is analyzed to forecast future inventory needs and guide business decisions. |
-| **Customization and Flexibility** | - **User-defined Parameters**: Users can customize various aspects of the application to fit their specific business needs, such as adding new print designs or adjusting stock levels.<br>- **Scalability**: The structure of the application allows for easy scaling as the business grows, with the ability to add more data points and complexity over time. |
+| **Data Model**              | - **Structured Data**: Information is organised into tables within Google Sheets, making it easy to read, access and manipulate.<br>- **Relationship Management**: The data model ensures that relationships between different data points (e.g., inventory items and sales records) are maintained. |
+| **Functionality**           | - **Print Run Tracking**: Users can log daily print sales, keeping accurate records for future production.<br>- **Inventory Management**: The application tracks inventory levels, usage, and restocking needs.<br>- **Sales Analysis**: Sales data is analysed to forecast future inventory needs and guide business decisions. |
+| **Customisation and Flexibility** | - **User-defined Parameters**: Users can customise various aspects of the application to fit their specific business needs, such as adding new prints or adjusting stock levels.<br>- **Scalability**: The structure of the application allows for easy scaling as the business grows, with the ability to add more data points and complexity over time. |
 | **Error Handling and Validation** | - **Input Validation**: Ensures that the data entered by users is accurate and in the correct format.<br>- **Error Messages**: Provides clear and helpful error messages to guide users in case of incorrect inputs or other issues. |
 
 ## Design <a name="design"></a>
@@ -180,17 +164,17 @@ Print Statement is crafted with a clear and user-centric design philosophy, ensu
 
 - **User-Friendly Interface**: The command line interface (CLI) is designed to be intuitive and straightforward, making it accessible even to users with minimal technical expertise. Clear and concise prompts guide users through each function, reducing the potential for confusion and errors.
 
-- **Visual Appeal**: The application employs bold neon colors (pink, yellow, green, and blue) to create a vibrant and engaging visual experience.
-These colors are chosen not only for their aesthetic appeal but also for their ability to enhance readability and highlight important information.
+- **Visual Appeal**: The application employs bold neon colours (pink, yellow, green, and blue) to create a vibrant and engaging visual experience.
+These colours are chosen not only for their aesthetic appeal but also for their ability to enhance readability and highlight important information.
 
-- **Functionality and Efficiency**: The design prioritizes functionality, ensuring that users can quickly and easily perform tasks such as tracking print runs, managing inventory, and forecasting future needs. Streamlined menus and commands allow for efficient navigation and operation, saving users time and effort.
+- **Functionality and Efficiency**: The design prioritises functionality, ensuring that users can quickly and easily perform tasks such as tracking prints, managing inventory, and forecasting future needs. Streamlined menus and commands allow for efficient navigation and operation, saving users time and effort.
 
-- **Consistency and Clarity**: Consistent use of colors and design elements helps users quickly learn and recognize different parts of the application.
-Information is presented in a clear and organized manner, with important details highlighted to draw attention.
+- **Consistency and Clarity**: Consistent use of colours and design elements helps users quickly learn and recognize different parts of the application.
+Information is presented in a clear and organised manner, with important details highlighted to draw attention.
 
-- **Customizability**: While maintaining a clear and consistent design, Print Statement allows for customization to meet the unique needs of each business. Users can easily update and modify print designs, inventory items, and other data through intuitive menus.
+- **Customisability**: While maintaining a clear and consistent design, Print Statement allows for customisation to meet the unique needs of each business. Users can easily update and modify print designs, inventory items, and other data through intuitive menus.
 
-- **Accessibility**: The application is designed to be accessible through the Heroku command line, ensuring it can be used on various devices and platforms. The choice of bold neon colors also aims to enhance accessibility by improving visibility and contrast. By combining a user-friendly interface with vibrant, bold design elements, Print Statement ensures that managing a small screen printing business is both an efficient and enjoyable experience. The clear, concise presentation of information, coupled with the flexibility to customize, makes it a valuable tool for any small business owner. Our design philosophy centres on simplicity, vibrancy and user engagement. We believe that a clean aesthetically pleasing design enhances the user's focus on the puzzle itself.
+- **Accessibility**: The application is designed to be accessible through the command line, ensuring it can be used on various devices and platforms. The choice of bold colours also aims to enhance accessibility by improving visibility and contrast. By combining a user-friendly interface with vibrant, bold design elements, Print Statement ensures that managing a small screen printing business is both an efficient and enjoyable experience.
 
 ### Design Choices
 - **Minimalist Layout**: Ensures the focus remains on the necessary information.
@@ -220,7 +204,7 @@ Information is presented in a clear and organized manner, with important details
 - **Guided Navigation**: Clear and concise menu options guide users through different functionalities of the application.
 
 ### Google Sheets Integration
-- **Data Storage**: Utilizes Google Sheets for storing and managing business data.
+- **Data Storage**: Utilises Google Sheets for storing and managing business data.
 - **Real-time Sync**: Ensures that any updates made via the application are immediately reflected in the Google Sheets.
 
 ### Comprehensive Sales Management
@@ -235,13 +219,13 @@ Information is presented in a clear and organized manner, with important details
 - **Flexible Updates**: Users can update sales, stock, and material data directly from the CLI.
 - **Error Handling**: Input validation and error messages ensure that the data entered is accurate and correctly formatted.
 
-### Customization and Scalability
-- **Customizable Parameters**: Users can define various parameters to tailor the application to their specific business needs.
+### Customisation and Scalability
+- **Customisable Parameters**: Users can define various parameters to tailor the application to their specific business needs.
 - **Scalable Structure**: Designed to accommodate growth, allowing for the addition of new data points and increased complexity over time.
 
 ### User Feedback and Assistance
 - **Typing Effect for Output**: Enhances the user experience by displaying messages in a typing animation.
-- **Color-coded Messages**: Uses colorama to provide color-coded messages, making it easier for users to distinguish between different types of information and alerts.
+- **Colour-coded Messages**: Uses colorama to provide color-coded messages, making it easier for users to distinguish between different types of information and alerts.
 
 ### Clear and Informative Display
 - **Tabulated Data Display**: Presents data in a clear, tabulated format using the `tabulate` module, making it easy to read and understand.
