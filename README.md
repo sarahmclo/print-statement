@@ -11,6 +11,7 @@ Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2
 ![GitHub last commit](https://img.shields.io/github/last-commit/sarahmclo/print-statement)
 ![GitHub language count](https://img.shields.io/github/languages/count/sarahmclo/print-statement)
 ![GitHub top language](https://img.shields.io/github/languages/top/sarahmclo/print-statement)
+![W3C Validation](https://img.shields.io/w3c-validation/default?targetUrl=https%3A%2F%2Fprint-statement-32b6316d2a47.herokuapp.com%2F)
 
 ## Table of Contents
 1. [User Experience (UX)](#user-experience)
@@ -452,7 +453,7 @@ Throughout the development process, we encountered and resolved various bugs to 
 | 2 | **UnboundLocalError: cannot access local variable display_table** |  run.py, input new data  | Table should be displayed with the updated values'get valid_ column _index', and display_table' are defined within the update data function, which restricts their scope. | Program does not handle the display_table properly. | Define these helper functions outside the 'update_ data' function.. | Fixed |
 | 3 | **SyntaxError: 'break' outside loop** | run.py up to loop, enter valid and invalid data  | No Syntax error for loop  | Loop logic not working as expected. | Ensure the break statements are correctly placed within the while loop. | Fixed |
 | 4 | **Google Sheet not updating correctly after changes**  | run.py, update new data | Make changes to data when updated by user. Google Sheet should reflect the updated data correctly. | Changes are not reflected in the Google Sheet, incorrectly mapping the Google Sheets format.| Fixed the index adjustment for cell_to_update' when referencing Google Sheets cells. Google Sheets uses 1-based indexing for rows and columns, fixed indices. | Fixed |
-| 5 | **BRIGHT text working in terminal with colorama but not in browser**  | run.py, use colorama | Make text vibrant | Heroku does not support some colorama features ie BRIGHT text | Fix by using rich library for banner  | Fixed |
+| 5 | **BRIGHT text working in terminal with colorama but not in browser**  | run.py, use colorama | Make text vibrant | Heroku does not support some colorama features ie BRIGHT text - advice from tutor support | Use lightmagenta  | Fixed |
 
 
 ## Finished Product <a name="finished-product"></a>
@@ -530,6 +531,7 @@ Print Statement is a powerful yet user-friendly CLI application designed to supp
 ## Acknowledgements <a name="acknowledgements"></a>
 - Amy Richardson, my course facillitator.
 - Rahul Lakahanpal, my mentor.
+- CI Tutor Support.
 - [Bakestock](https://github.com/amylour/BakeStock) by amylour for inspiration.
 - [Budget Buddy](https://github.com/Sarah-Bue/budget-buddy) by Sarah-Bue for helpful Readme.
 - Ozzy the dog, great on breaks.
