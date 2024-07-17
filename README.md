@@ -139,9 +139,11 @@ The delete operation, while not directly implemented as a standalone feature, ca
 
 ![flowchart](docs/ux/print-statement-flowchart.png)
 
-### Data Model <a name="data-model"></a>
+## Data Model <a name="data-model"></a>
 
-- **Connecting Google Sheets**
+The data model for the Print Statement project is designed to efficiently manage and update the sales, inventory, and materials data for Sarah's Screen Prints Inc. The data is organized into three main Google Sheets: Market Sales, Print Stock, and Materials. Each sheet contains structured data in a tabular format, with specific columns and rows representing various aspects of the business.
+
+### Connecting Google Sheets
 
 | Steps                                                                 | Details                                                                                                                                                                       |
 |----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -152,19 +154,41 @@ The delete operation, while not directly implemented as a standalone feature, ca
 | Variable Definition and Scope                                                    | Defined at the top of `run.py` file for accessing the worksheet.                                                                                                              |
 | Package Installation                                                            | Installed GSpread and OAuth packages using terminal for interacting with Google Sheets.                                                                                       |
 
-- **Market Sales**
+### Market Sales
+
+- Columns: Each column represents different prints for various days of the week (e.g., Print #1 - Mon, Print #2 - Tues, etc.).
+- Rows: The first row contains headers, and the subsequent rows contain sales data for each day of the week.
 
 ![google-sheets](docs/google-sheet/market-sales-gs.png)
 
-- **Print Stock**
+### Print Stock
+
+- Columns: Each column represents different prints (e.g., Print #1 - Current, Print #2 - Production, etc.).
+- Rows: The first row contains headers, and the subsequent rows contain stock data categorized by stock types (Current, Production, Forecast).
 
 ![google-sheets](docs/google-sheet/print-stock-gs.png)
 
-- **Materials**
+### Materials
+
+- Columns: The first column represents different materials (e.g., Screen, Squeegee, etc.), and the second column represents their quantities.
+- Rows: The first row contains headers, and the subsequent rows contain materials data.
 
 ![google-sheets](docs/google-sheet/materials-gs.png)
 
-### Structure <a name="structure"></a>
+### Data Interaction
+
+- Viewing Data: The application allows users to view the data in each sheet by displaying it in a tabulated format using the tabulate library. This ensures that the data is presented clearly and is easy to read.
+
+- Updating Data: Users can update the data by specifying the day and print number for sales, the stock type and print number for stock, and the material type for materials. The application then finds the correct cell in the sheet and updates the value.
+
+### Data Validation
+
+The data model includes validation checks to ensure the correctness of user inputs. For example, it validates the day of the week, print number, stock type, and material type before proceeding with updates. This helps in maintaining the integrity of the data.
+
+### Google Sheets API
+The interaction with Google Sheets is managed using the gspread library, which is authorized using Google OAuth2 credentials. The API calls handle fetching the data from the sheets, updating specific cells, and committing these changes back to Google Sheets.
+
+## Structure <a name="structure"></a>
 
 | **Aspect**                  | **Details**                                                                                                                                                                                               |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
