@@ -14,6 +14,11 @@ from colorama import Fore, Back, Style
 # Initialise colorama
 colorama.init(autoreset=True)
 
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
 # IAM Configuration
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -57,10 +62,8 @@ def welcome():
     """
     Display Print Statement Banner
     """
-    print(
-        Fore.MAGENTA
-        + Style.BRIGHT
-        + '''
+    console.print(
+    '''
        +----------------------------------------------------------------+
        |  ######                                                        |
        |  #     # #####  # #    # #####                                 |
@@ -78,8 +81,9 @@ def welcome():
        |   #####    #   #    #   #   ###### #    # ###### #    #   #    |
        +----------------------------------------------------------------+
        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-'''
+    ''', style="magenta bold"
     )
+
     time.sleep(1)
     """
     Display welcome screen text
