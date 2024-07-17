@@ -23,6 +23,7 @@ Visit associated Google Sheet [here](https://docs.google.com/spreadsheets/d/1du2
     - [Return User Goals](#return-user-goals)
 2. [Project Planning](#project-planning)
     - [Process](#process)
+    - [CRUD Operations](#crud)
     - [Flow Chart](#flow-chart)
     - [Data Model](#data-model)
     - [Structure](#structure)
@@ -114,7 +115,23 @@ Overall, Print Statement enhances the user experience by providing a reliable, c
 | **Development**            | - **Setting Up Environment**: Utilised Gitpod for coding and GitHub for version control.<br>- **Implementing Core Features**: Developed print tracking, sales management, inventory tracking, and forecasting.<br>- **Connecting to Google Sheets**: Integrated with Google Sheets using GSpread and OAuth packages. |
 | **Testing**                | - **Validation Testing**: Used Pep8 Linter for code validation.<br>- **Accessibility Testing**: Used Lighthouse for accessibility testing.<br>- **Manual Testing**: Performed extensive testing across browsers and devices. |
 | **Deployment**             | - **Deploying to Heroku**: Deployed the application on Heroku.<br>- **Version Control**: Used Git for version control with regular commits to GitHub.                                                      |
-| **Feedback and Iteration** | - **Gathering User Feedback**: Collected initial user feedback.<br>- **Continuous Improvement**: Implemented enhancements based on feedback.                                                               |
+| **Feedback and Iteration** | - **Gathering User Feedback**: Collected initial user feedback.<br>- **Continuous Improvement**: Implemented enhancements based on feedback.                                                         |
+
+### CRUD Operations <a name="crud"></a>
+
+The core of the Print Statement system revolves around the CRUD (Create, Read, Update, Delete) operations, which are seamlessly integrated into the program to ensure smooth data management.
+
+- **Create**
+The create operation allows users to add new records to the sales, stock, and materials sheets. Although not explicitly shown in the main menu functions, new records can be added by updating specific cells that may not have been previously populated.
+
+- **Read**
+The read operation is utilized extensively throughout the program to fetch and display data from Google Sheets. This is achieved using the get_all_records() method to retrieve data and the tabulate library to format it for better readability.
+
+- **Update**
+The update operation enables users to modify existing data in the sheets. The program prompts the user to enter specific details to locate the correct cell and then update its value.
+
+- **Delete**
+The delete operation, while not directly implemented as a standalone feature, can be achieved by setting the value of a cell to an empty string, effectively removing the data from that cell.
 
 ### Flow Chart <a name="flow-chart"></a>
 
