@@ -452,7 +452,7 @@ Throughout the development process, we encountered and resolved various bugs to 
 | 2 | **UnboundLocalError: cannot access local variable display_table** |  run.py, input new data  | Table should be displayed with the updated values'get valid_ column _index', and display_table' are defined within the update data function, which restricts their scope. | Program does not handle the display_table properly. | Define these helper functions outside the 'update_ data' function.. | Fixed |
 | 3 | **SyntaxError: 'break' outside loop** | run.py up to loop, enter valid and invalid data  | No Syntax error for loop  | Loop logic not working as expected. | Ensure the break statements are correctly placed within the while loop. | Fixed |
 | 4 | **Google Sheet not updating correctly after changes**  | run.py, update new data | Make changes to data when updated by user. Google Sheet should reflect the updated data correctly. | Changes are not reflected in the Google Sheet, incorrectly mapping the Google Sheets format.| Fixed the index adjustment for cell_to_update' when referencing Google Sheets cells. Google Sheets uses 1-based indexing for rows and columns, fixed indices. | Fixed |
-| 5 | **BRIGHT text working in terminal with colorama but not in browser**  | run.py, use colorama | Make text vibrant | Heroku does not support some colorama features ie BRIGHT text | Fixed  | Fixed |
+| 5 | **BRIGHT text working in terminal with colorama but not in browser**  | run.py, use colorama | Make text vibrant | Heroku does not support some colorama features ie BRIGHT text | Fix by using rich library for banner  | Fixed |
 
 
 ## Finished Product <a name="finished-product"></a>
