@@ -1,9 +1,12 @@
-# Import libraries and dependencies
+# Import libraries, dependencies, credentials
+# Google Sheets
 import gspread
 from google.oauth2.service_account import Credentials
+# Time and sys libraries for typing effects and delays
 import sys
-import os
 import time
+# os library for clear screen functionality
+import os
 from tabulate import tabulate
 
 # Import colorama modules, adapted from tutorial:
@@ -21,6 +24,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive",
 ]
 
+# const for credentials and scope
 CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -29,6 +33,7 @@ SHEET = GSPREAD_CLIENT.open("print_statement")  # use spreadsheet name here
 # Functions
 
 
+# clear screen function
 def clearScreen():
     """
     Clear CLI function
@@ -36,6 +41,7 @@ def clearScreen():
     os.system("clear")
 
 
+# typing function
 def typingPrint(text, color=Fore.WHITE):
     """
     Use typingPrint() in place of print() creates typing effect
@@ -46,6 +52,7 @@ def typingPrint(text, color=Fore.WHITE):
         time.sleep(0.05)
 
 
+# type function
 def typeInput(text):
     for character in text:
         sys.stdout.write(character)
@@ -53,6 +60,7 @@ def typeInput(text):
         time.sleep(0.05)
 
 
+# welcome screen function
 def welcome():
     """
     Display Print Statement Banner
@@ -121,6 +129,7 @@ def welcome():
 welcome()
 
 
+# options function
 def options():
     print("\n")
     print(Fore.GREEN + Style.BRIGHT + " Main Menu:\n")
@@ -157,7 +166,8 @@ def options():
         exit_program()
 
 
-def view_sales(sheet_name):  # Sales Function
+# Sales Function
+def view_sales(sheet_name):
     """
     View sales data from specified sheet
     """
@@ -251,6 +261,7 @@ def view_sales(sheet_name):  # Sales Function
                 )
 
 
+# Update data function
 def update_data(sheet, headers):
     """
     Function to allow for user to update data in sheets.
@@ -316,7 +327,8 @@ def update_data(sheet, headers):
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for {headers[column_index-1]} on {day}: "
+            + f" Update data by entering new value "
+            + f"for {headers[column_index-1]} on {day}: "
             + Fore.WHITE
             + Style.BRIGHT
         )
@@ -348,6 +360,7 @@ def update_data(sheet, headers):
             print(f" Error updating data: {e}")
 
 
+# Get vaild data functions
 def get_valid_row_index(data):
     while True:
         try:
@@ -404,6 +417,7 @@ def get_valid_column_index(headers):
             )
 
 
+# Display table function
 def display_table(data, headers):
     if not data:
         print("No data available.")
@@ -412,7 +426,8 @@ def display_table(data, headers):
     print(tabulate(data_list, headers=headers, tablefmt="fancy_grid"))
 
 
-def view_stock():  # Stock Function
+# Stock Function
+def view_stock():
     """
     View stock data
     """
@@ -503,6 +518,7 @@ def view_stock():  # Stock Function
                 )
 
 
+# Update stock function
 def update_stock_data(sheet, headers):
     """
     Function to allow for user to update data in sheets.
@@ -561,14 +577,16 @@ def update_stock_data(sheet, headers):
                 row_index = i + 1  # Do not allow for header update
                 break
         if row_index is None:
-            print(Fore.RED + Style.BRIGHT + f" Invalid input for {stock_type}.")
+            print(Fore.RED + Style.BRIGHT + f" Invalid "
+                  + f"input for {stock_type}.")
             continue
 
         # Input new value
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for '{headers[column_index-1]}' on '{stock_type}': "
+            + f" Update data by entering new value for "
+            + f"'{headers[column_index-1]}' on '{stock_type}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
@@ -598,7 +616,8 @@ def update_stock_data(sheet, headers):
             print(f" Error updating data: {e}")
 
 
-def view_materials():  # Materials Function
+# Materials Function
+def view_materials():
     """
     View materials data
     """
@@ -689,6 +708,7 @@ def view_materials():  # Materials Function
                 )
 
 
+# Update materials function
 def update_materials_data(sheet, headers):
     """
     Function to allow for user to update data in materials sheet.
@@ -741,7 +761,8 @@ def update_materials_data(sheet, headers):
         new_value = input(
             Fore.MAGENTA
             + Style.BRIGHT
-            + f" Update data by entering new value for 'Quantity' on '{materials_type}': "
+            + f" Update data by entering new value "
+            + f"for 'Quantity' on '{materials_type}': "
             + Fore.WHITE
             + Style.BRIGHT
         )
@@ -772,6 +793,7 @@ def update_materials_data(sheet, headers):
             print(f" Error updating data: {e}")
 
 
+# Exit program function
 def exit_program():
     clearScreen()
     print("\n")
